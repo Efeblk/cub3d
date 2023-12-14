@@ -1,5 +1,5 @@
 NOM = libparser.a
-SRC = start.c
+SRC = parse_arg.c parse_map.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc

@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:59:58 by ibalik            #+#    #+#             */
-/*   Updated: 2023/12/14 16:32:21 by ibalik           ###   ########.fr       */
+/*   Updated: 2023/12/14 17:35:52 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,14 @@
 void parse_arg(char *arg)
 {
     int fd;
-    //char *line;
-    //int ret;
-
     fd = open(arg, O_RDONLY);
     if (fd == -1)
     {
         printf("Error\nFile not found\n");
         exit(0);
     }
-    checkers(arg);
-    // while ((ret = get_next_line(fd, &line)) > 0)
-    // {
-    //     printf("%s\n", line);
-    //     free(line);
-    // }
-    // printf("%s\n", line);
-    // free(line);
     close(fd);
+    checkers(arg);
 }
 
 void cub_check(char *arg)

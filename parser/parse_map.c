@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 15:58:04 by ibalik            #+#    #+#             */
-/*   Updated: 2023/12/14 17:37:02 by ibalik           ###   ########.fr       */
+/*   Created: 2023/12/14 17:37:25 by ibalik            #+#    #+#             */
+/*   Updated: 2023/12/14 17:50:55 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char **argv)
+void parse_map(char *arg)
 {
-    if (argc == 2)
+    int fd;
+    char *line;
+    int i;
+
+    i = 0;
+    fd = open(arg, O_RDONLY);
+    while (get_next_line(fd, &line))
     {
-        parse_arg(argv[1]);
-        parse_map(argv[1]);
+        printf("%s\n", line);
+        while (*line == ' ' || *line == '\t')
+            line++;
+        
+        
+        free(line);
     }
-    else if (argc > 2)
-    {
-        printf("Error\nToo many arguments\n");
-    }
-    else
-    {
-        printf("Error\nNo arguments\n");
-    }
-    return 0;
+    close(fd);
 }

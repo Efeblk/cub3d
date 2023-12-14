@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2023/12/14 16:28:00 by ibalik           ###   ########.fr       */
+/*   Updated: 2023/12/14 17:47:30 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+
+typdef struct s_map
+{
+    char **map;
+    int map_width;
+    int map_height;
+    char *ea;
+    char *so;
+    char *we;
+    char *no;
+    int ceiling_color;
+    int floor_color;
+}               t_map;
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
