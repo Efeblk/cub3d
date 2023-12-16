@@ -34,7 +34,6 @@ int file_exists(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		close(fd);
 		return (0);
 	}	
 	else
