@@ -3,7 +3,6 @@
 void check_xpm(char *line)
 {
     int i;
-    int fd;
 
     i = ft_strlen(line) - 1;
     while (line[i])
@@ -29,5 +28,5 @@ void check_xpm(char *line)
 
 void check_rgb(char *line)
 {
-
+    (void)line;
 }

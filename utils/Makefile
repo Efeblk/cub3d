@@ -1,5 +1,5 @@
 NOM = libutils.a
-SRC = utils.c utils2.c utils3.c
+SRC = utils.c utils2.c utils3.c utils4.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc

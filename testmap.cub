@@ -1,0 +1,4 @@
+EA ./pics/colorstone.xpm
+SO ./pics/wood.xpm
+WE ./pics/greystone.xpm
+NO ./pics/purplestone.xpm

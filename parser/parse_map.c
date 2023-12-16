@@ -16,11 +16,9 @@ void parse_map(char *arg)
 {
     int fd;
     char *line;
-    int i;
 
-    i = 0;
     fd = open(arg, O_RDONLY);
-    while (get_next_line(fd, &line))
+    while ((line = get_next_line(fd)))
     {
         printf("%s\n", line);
         check_line(line);        
@@ -45,7 +43,8 @@ void check_line(char *line)
         line[i] != 'F' || 
         line[i] != 'C')
         {
-            error("Invalid character in map");
+            printf("Invalid character in map");
+            exit(0);    
         }
         else
         {
