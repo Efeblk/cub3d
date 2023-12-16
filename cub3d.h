@@ -31,6 +31,8 @@ typdef struct s_map
     int floor_color;
 }               t_map;
 
+int file_exists(char *file);
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
