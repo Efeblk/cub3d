@@ -18,7 +18,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define BUFFER_SIZE 5
+#define BUFFER_SIZE 1
 typedef struct s_map
 {
     char **map;
@@ -43,17 +43,20 @@ char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strcpy(char *s1, char *s2);
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
+char	*ft_strdup(const char *s1);
 
 void parse_arg(char *arg);
 void checkers(char *arg);
 void cub_check(char *arg);
 
-void parse_map(char *arg);
-void check_line(char *line);
-void route_valid(char *line);
+void parse_map(char *arg, t_map *map);
+void parse_line(char *line);
+void check_line(char *line, t_map *map);
+void route_valid(char *line, t_map *map);
 
 void check_xpm(char *line);
 void check_rgb(char *line);
+void w_xpm_to_map(char c1, char c2, char *line, t_map *map);
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *string, int searchedChar );

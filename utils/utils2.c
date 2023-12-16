@@ -30,7 +30,6 @@ int	ft_isalnum(int c)
 int file_exists(char *file)
 {
 	int fd;
-
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{

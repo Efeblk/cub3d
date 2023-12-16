@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void parse_map(char *arg)
+void parse_map(char *arg, t_map *map)
 {
     int fd;
     char *line;
@@ -20,14 +20,23 @@ void parse_map(char *arg)
     fd = open(arg, O_RDONLY);
     while ((line = get_next_line(fd)))
     {
-        printf("%s\n", line);
-        check_line(line);        
+        printf("get_next_line: %s\n", line);
+        parse_line(line);
+        check_line(line, map);        
         free(line);
     }
     close(fd);
 }
 
-void check_line(char *line)
+void parse_line(char *line)
+{
+    int i;
+
+    i = ft_strlen(line) - 1;
+    line[i] = '\0';
+}
+
+void check_line(char *line, t_map *map)
 {
     int i = 0;
 
@@ -42,28 +51,31 @@ void check_line(char *line)
             line[i] != 'F' && 
             line[i] != 'C')
         {
-            printf("Invalid character in map: %c%c\n", line[i], line[i + 1]);
-            exit(0);    
+            ++i; 
         }
         else
         {
             printf("Valid character in map: %c%c\n", line[i], line[i + 1]);
-            route_valid(&line[i]);
+            route_valid(&line[i], map);
         }
         i++;
     }
 }
 
-void route_valid(char *line)
+void route_valid(char *line, t_map *map)
 { 
     int i;
     i = 0;
-    if ((line[i] != 'W' && line[i + 1] != 'E') || 
-        (line[i] != 'E' && line[i + 1] != 'A') || 
-        (line[i] != 'S' && line[i + 1] != 'O') || 
-        (line[i] != 'N' || line[i + 1] != 'O'))
+    if ((line[i] == 'W' && line[i + 1] == 'E') || 
+        (line[i] == 'E' && line[i + 1] == 'A') || 
+        (line[i] == 'S' && line[i + 1] == 'O') || 
+        (line[i] == 'N' && line[i + 1] == 'O'))
         {
-            check_xpm(&line[3]);
+            i += 2;
+            while (line[i] == ' ' || line[i] == '\t' || line[i] == '.' || line[i] == '/')
+                i++;
+            check_xpm(&line[i]);
+            w_xpm_to_map(line[0], line[1], &line[i], map);
         }
         else if (line[i] != 'F' || line[i] != 'C')
         {
