@@ -1,4 +1,5 @@
 EA ./assets/colorstone.xpm
-SO ./assets/wood.xpm
-WE ./pics/greystone.xpm
-NO ./pics/purplestone.xpm
+SO      ./assets/wood.xpm
+WE              ./assets/greystone.xpm
+NO./assets/purplestone.xpm
+

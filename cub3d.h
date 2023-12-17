@@ -45,6 +45,8 @@ int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 char	*ft_strdup(const char *s1);
 
+void map_init(t_map *map);
+
 void parse_arg(char *arg);
 void checkers(char *arg);
 void cub_check(char *arg);

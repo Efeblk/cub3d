@@ -26,6 +26,7 @@ void parse_map(char *arg, t_map *map)
         free(line);
     }
     close(fd);
+    printf("infos are valid\n");
 }
 
 void parse_line(char *line)
@@ -33,7 +34,10 @@ void parse_line(char *line)
     int i;
 
     i = ft_strlen(line) - 1;
-    line[i] = '\0';
+    if (line[i] == '\n')
+    {
+        line[i] = '\0';
+    }
 }
 
 void check_line(char *line, t_map *map)
@@ -44,21 +48,23 @@ void check_line(char *line, t_map *map)
     {
         while (line[i] == ' ' || line[i] == '\t')
             i++;
-        if ((line[i] != 'W' || line[i + 1] != 'E') && 
-            (line[i] != 'E' || line[i + 1] != 'A') && 
-            (line[i] != 'S' || line[i + 1] != 'O') && 
-            (line[i] != 'N' || line[i + 1] != 'O') && 
-            line[i] != 'F' && 
-            line[i] != 'C')
-        {
-            ++i; 
-        }
-        else
+        if ((line[i] == 'W' && line[i + 1] == 'E') || 
+            (line[i] == 'E' && line[i + 1] == 'A') || 
+            (line[i] == 'S' && line[i + 1] == 'O') ||  
+            (line[i] == 'N' && line[i + 1] == 'O') || 
+            line[i] == 'F' || 
+            line[i] == 'C')
         {
             printf("Valid character in map: %c%c\n", line[i], line[i + 1]);
             route_valid(&line[i], map);
+            break;
         }
-        i++;
+        else
+        {
+            printf("Invalid character in map: %c\n", line[i]);
+            exit(0);
+        }
+        i += 2;
     }
 }
 

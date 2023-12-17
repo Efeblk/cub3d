@@ -14,19 +14,9 @@
 
 int main(int argc, char **argv)
 {
-    // int fd;
-
-    // fd = open("assets/colorstone.xpm", O_RDONLY);
-    // if (fd == -1)
-    // {
-    //     printf("Error\nFile not found\n");
-    // }
-    // else
-    // {
-    //     printf("fd: %d\n", fd);
-    //     close(fd);
-    // }
     t_map map;
+    
+    map_init(&map);
     if (argc == 2)
     {
         parse_arg(argv[1]);
