@@ -41,3 +41,16 @@ int file_exists(char *file)
 		return (1);
 	}
 }
+
+int last_spaces_tonull(char *line)
+{
+	int i;
+
+	i = ft_strlen(line) - 1;
+	while (line[i] == ' ')
+	{
+		line[i] = '\0';
+		i--;
+	}
+	return i;
+}

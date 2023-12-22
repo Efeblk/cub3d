@@ -19,6 +19,8 @@
 #include <fcntl.h>
 
 #define BUFFER_SIZE 1
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
 typedef struct s_map
 {
     char **map;
@@ -33,6 +35,7 @@ typedef struct s_map
 }               t_map;
 
 int file_exists(char *file);
+int last_spaces_tonull(char *line);
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
@@ -44,6 +47,7 @@ char	*ft_strcpy(char *s1, char *s2);
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 char	*ft_strdup(const char *s1);
+int	ft_atoi(const char *str);
 
 void map_init(t_map *map);
 
@@ -57,8 +61,14 @@ void check_line(char *line, t_map *map);
 void route_valid(char *line, t_map *map);
 
 void check_xpm(char *line);
-void check_rgb(char *line);
+void check_rgb(char *line, char c,t_map *map);
 void w_xpm_to_map(char c1, char c2, char *line, t_map *map);
+
+void w_rgb_to_map(int *rgb, char c, t_map *map);
+void check_rgb_value(int value);
+void count_coma(char *line);
+
+void check_infos_set(t_map *map);
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *string, int searchedChar );

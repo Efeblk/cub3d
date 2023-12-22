@@ -26,7 +26,7 @@ void parse_map(char *arg, t_map *map)
         free(line);
     }
     close(fd);
-    printf("infos are valid\n");
+    check_infos_set(map);
 }
 
 void parse_line(char *line)
@@ -37,6 +37,19 @@ void parse_line(char *line)
     if (line[i] == '\n')
     {
         line[i] = '\0';
+    }
+    if (i > 0)
+    {
+        i = 0;
+        while (line[i] && (line[i] == ' ' || line[i] == '\t'))
+        {
+            ++i;
+        }
+        if (line[i] == '\0')
+        {
+            printf("space or tab on empty line\n");
+            exit(0);
+        }
     }
 }
 
@@ -85,6 +98,6 @@ void route_valid(char *line, t_map *map)
         }
         else if (line[i] != 'F' || line[i] != 'C')
         {
-            check_rgb(&line[2]);
+            check_rgb(&line[2], line[0], map);
         }
 }

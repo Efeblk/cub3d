@@ -4,7 +4,7 @@ void check_xpm(char *line)
 {
     int i;
     printf("line: %s\n", line);
-    i = ft_strlen(line) - 1;
+    i = last_spaces_tonull(line);
     while (line[i])
     {
         if (line[i] == 'm' && line[i - 1] == 'p' && line[i - 2] == 'x' && line[i - 3] == '.' /*&& line[i + 1] == '\0'*/)
