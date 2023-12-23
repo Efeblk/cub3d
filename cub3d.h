@@ -36,6 +36,7 @@ typedef struct s_map
     int player_x;
     int player_y;
     int all_infos_set;
+    int line_to_skip;
 }               t_map;
 
 //UTILS
@@ -53,6 +54,9 @@ int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 char	*ft_strdup(const char *s1);
 int	ft_atoi(const char *str);
+
+void print_char_array(char **array); //BUNU SİL!!!!
+void free_char_array(char **array);
 ///////////////////////////
 void map_init(t_map *map);
 
@@ -61,7 +65,7 @@ void checkers(char *arg);
 void cub_check(char *arg);
 
 void parse_map(char *arg, t_map *map);
-void parse_line(char *line);
+void parse_line(char *line, t_map *map);
 void check_line(char *line, t_map *map);
 void route_valid(char *line, t_map *map);
 
@@ -79,6 +83,11 @@ void parse_map_line(char *line, t_map *map);
 void check_map_line(char *line, t_map *map);
 int check_player_dir(char dir, int i, t_map *map);
 void check_horizontal_walls(char *line, int i);
+
+void read_write_map(char *mapname, t_map *map);
+void newline_to_null(char *line);
+char *fill_with_spaces(int line_width);
+
 
 //GET NEXT LINE
 char	*get_next_line(int fd);

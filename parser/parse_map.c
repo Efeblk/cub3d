@@ -21,14 +21,15 @@ void parse_map(char *arg, t_map *map)
     while ((line = get_next_line(fd)))
     {
         printf("get_next_line: %s\n", line);
-        parse_line(line);
+        parse_line(line, map);
         check_line(line, map);        
         free(line);
     }
     close(fd);
+    read_write_map(arg,map);
 }
 
-void parse_line(char *line)
+void parse_line(char *line, t_map *map)
 {
     int i;
 
@@ -50,6 +51,8 @@ void parse_line(char *line)
             exit(0);
         }
     }
+    else
+        map->line_to_skip++;
 }
 
 void check_line(char *line, t_map *map)
@@ -74,7 +77,10 @@ void check_line(char *line, t_map *map)
                 parse_map_line(line, map);
             }
             else
+            {
+                map->line_to_skip++;
                 route_valid(&line[i], map);
+            }   
             break;
         }
         else

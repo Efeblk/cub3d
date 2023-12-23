@@ -13,4 +13,5 @@ void map_init(t_map *map)
     map->ceiling_color = -1;
     map->floor_color = -1;
     map->all_infos_set = 0;
+    map->line_to_skip = 0;
 }
