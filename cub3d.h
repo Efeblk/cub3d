@@ -32,8 +32,13 @@ typedef struct s_map
     char *no;
     int ceiling_color;
     int floor_color;
+    char player_dir;
+    int player_x;
+    int player_y;
+    int all_infos_set;
 }               t_map;
 
+//UTILS
 int file_exists(char *file);
 int last_spaces_tonull(char *line);
 
@@ -48,7 +53,7 @@ int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 char	*ft_strdup(const char *s1);
 int	ft_atoi(const char *str);
-
+///////////////////////////
 void map_init(t_map *map);
 
 void parse_arg(char *arg);
@@ -68,8 +73,14 @@ void w_rgb_to_map(int *rgb, char c, t_map *map);
 void check_rgb_value(int value);
 void count_coma(char *line);
 
-void check_infos_set(t_map *map);
+int check_infos_set(t_map *map);
 
+void parse_map_line(char *line, t_map *map);
+void check_map_line(char *line, t_map *map);
+int check_player_dir(char dir, int i, t_map *map);
+void check_horizontal_walls(char *line, int i);
+
+//GET NEXT LINE
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *string, int searchedChar );
 void	ft_bzero(void *s, size_t n);
