@@ -66,7 +66,7 @@ void cub_check(char *arg);
 
 void parse_map(char *arg, t_map *map);
 void parse_line(char *line);
-void check_line(char *line, t_map *map, int line_count);
+void check_line(char *line, t_map *map, int line_count, int *map_start_flag);
 void route_valid(char *line, t_map *map);
 
 void check_xpm(char *line);

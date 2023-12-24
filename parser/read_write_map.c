@@ -10,9 +10,6 @@ void read_write_map(char *mapname, t_map *map)
     map->map = malloc(sizeof(char *) * (map->map_height + 3)); //null + top + bottom
     i = 0;
     map->map[0] = fill_with_spaces(map->map_width);
-
-    printf("map->line_to_skip: %d\n", map->line_to_skip);
-    printf("map->map_height: %d\n", map->map_height);
     while (i < map->line_to_skip)
     {
         get_next_line(fd);

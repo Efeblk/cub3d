@@ -17,14 +17,16 @@ void parse_map(char *arg, t_map *map)
     int fd;
     char *line;
     int line_count;
+    int map_start_flag;
 
+    map_start_flag = 0;
     line_count = 0;
     fd = open(arg, O_RDONLY);
     while ((line = get_next_line(fd)))
     {
        //printf("get_next_line: %s\n", line);
         parse_line(line);
-        check_line(line, map, line_count);        
+        check_line(line, map, line_count, &map_start_flag);        
         free(line);
         line_count++;
     }
@@ -58,10 +60,10 @@ void parse_line(char *line)
     }    
 }
 
-void check_line(char *line, t_map *map, int line_count)
+void check_line(char *line, t_map *map, int line_count, int *map_start_flag)
 {
     int i = 0;
-    int map_start_flag = 0;
+
     while (line[i])
     {
         while (line[i] == ' ' || line[i] == '\t')
@@ -76,10 +78,11 @@ void check_line(char *line, t_map *map, int line_count)
             printf("Valid character in infos: %c%c\n", line[i], line[i + 1]);
             if ((line[i] == '1' || line[i] == '0') && check_infos_set(map) == 1)
             {
-                if (map_start_flag == 0)
+                if (*map_start_flag == 0)
                 {
-                    map->line_to_skip = line_count - 1;
-                    map_start_flag = 1;
+                    printf("map_start_flag: %s\n", line);
+                    map->line_to_skip = line_count;
+                    *map_start_flag = 1;
                 } 
                 parse_map_line(line, map);
             }
