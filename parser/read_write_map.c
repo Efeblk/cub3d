@@ -9,23 +9,25 @@ void read_write_map(char *mapname, t_map *map)
     fd = open(mapname, O_RDONLY, 0644);
     map->map = malloc(sizeof(char *) * (map->map_height + 3)); //null + top + bottom
     i = 0;
-    printf("linetoskip: %d\n", map->line_to_skip);
     map->map[0] = fill_with_spaces(map->map_width);
+
+    printf("map->line_to_skip: %d\n", map->line_to_skip);
+    printf("map->map_height: %d\n", map->map_height);
     while (i < map->line_to_skip)
     {
         get_next_line(fd);
         i++;
     }
     i = 1;
-    while ((line = get_next_line(fd)))
+    while ((line = get_next_line(fd)) && i < map->map_height + 1)
     {
         newline_to_null(line);
         map->map[i] = ft_strdup(line);
         ++i;
+        free(line);
     }
     map->map[i] = fill_with_spaces(map->map_width);
     map->map[i + 1] = NULL;
-    print_char_array(map->map);
 }
 
 char *fill_with_spaces(int line_width)

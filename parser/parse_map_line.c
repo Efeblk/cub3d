@@ -32,7 +32,7 @@ void check_map_line(char *line, t_map *map)
         }
         else
         {
-            printf("Error\nInvalid character in !! map\n");
+            printf("Error\nInvalid character in !! map: ' %d '\n", line[i]);
             exit(0);
         }
         i++;

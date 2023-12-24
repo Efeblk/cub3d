@@ -65,8 +65,8 @@ void checkers(char *arg);
 void cub_check(char *arg);
 
 void parse_map(char *arg, t_map *map);
-void parse_line(char *line, t_map *map);
-void check_line(char *line, t_map *map);
+void parse_line(char *line);
+void check_line(char *line, t_map *map, int line_count);
 void route_valid(char *line, t_map *map);
 
 void check_xpm(char *line);
@@ -83,6 +83,7 @@ void parse_map_line(char *line, t_map *map);
 void check_map_line(char *line, t_map *map);
 int check_player_dir(char dir, int i, t_map *map);
 void check_horizontal_walls(char *line, int i);
+void check_vertical_walls(t_map *map);
 
 void read_write_map(char *mapname, t_map *map);
 void newline_to_null(char *line);

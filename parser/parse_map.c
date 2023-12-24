@@ -16,20 +16,25 @@ void parse_map(char *arg, t_map *map)
 {
     int fd;
     char *line;
+    int line_count;
 
+    line_count = 0;
     fd = open(arg, O_RDONLY);
     while ((line = get_next_line(fd)))
     {
-        printf("get_next_line: %s\n", line);
-        parse_line(line, map);
-        check_line(line, map);        
+       //printf("get_next_line: %s\n", line);
+        parse_line(line);
+        check_line(line, map, line_count);        
         free(line);
+        line_count++;
     }
     close(fd);
     read_write_map(arg,map);
+    print_char_array(map->map);
+    check_vertical_walls(map);
 }
 
-void parse_line(char *line, t_map *map)
+void parse_line(char *line)
 {
     int i;
 
@@ -50,15 +55,13 @@ void parse_line(char *line, t_map *map)
             printf("space or tab on empty line\n");
             exit(0);
         }
-    }
-    else
-        map->line_to_skip++;
+    }    
 }
 
-void check_line(char *line, t_map *map)
+void check_line(char *line, t_map *map, int line_count)
 {
     int i = 0;
-
+    int map_start_flag = 0;
     while (line[i])
     {
         while (line[i] == ' ' || line[i] == '\t')
@@ -73,12 +76,15 @@ void check_line(char *line, t_map *map)
             printf("Valid character in infos: %c%c\n", line[i], line[i + 1]);
             if ((line[i] == '1' || line[i] == '0') && check_infos_set(map) == 1)
             {
-                printf("MAP STARTS\n");
+                if (map_start_flag == 0)
+                {
+                    map->line_to_skip = line_count - 1;
+                    map_start_flag = 1;
+                } 
                 parse_map_line(line, map);
             }
             else
             {
-                map->line_to_skip++;
                 route_valid(&line[i], map);
             }   
             break;
