@@ -31,11 +31,10 @@ char *fill_with_spaces(int line_width)
 {
     int i;
     char *space_line;
-
     space_line = malloc(sizeof(char) * (line_width + 1));
     space_line[line_width] = '\0';
     i = 0;
-    while (space_line[i] != '\0')
+    while (i < line_width)
     {
         space_line[i] = ' ';
         ++i;

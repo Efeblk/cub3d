@@ -34,6 +34,7 @@ void parse_map(char *arg, t_map *map)
     read_write_map(arg,map);
     print_char_array(map->map);
     check_vertical_walls(map);
+    printf("MAP IS OK!\n");
 }
 
 void parse_line(char *line)
