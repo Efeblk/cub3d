@@ -18,6 +18,11 @@ void read_write_map(char *mapname, t_map *map)
     i = 1;
     while ((line = get_next_line(fd)) && i < map->map_height + 1)
     {
+        if (line[0] == '\n')
+        {
+            printf("another map\n");
+            exit(0);
+        }
         newline_to_null(line);
         map->map[i] = ft_strdup(line);
         ++i;
