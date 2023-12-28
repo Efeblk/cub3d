@@ -24,7 +24,7 @@ void parse_map(char *arg, t_map *map)
     fd = open(arg, O_RDONLY);
     while ((line = get_next_line(fd)))
     {
-       //printf("get_next_line: %s\n", line);
+        map->free_line = line; //exit olunca orijinal line free yapmak icin
         parse_line(line);
         check_line(line, map, line_count, &map_start_flag);        
         free(line);
@@ -34,6 +34,7 @@ void parse_map(char *arg, t_map *map)
     read_write_map(arg,map);
     print_char_array(map->map);
     check_vertical_walls(map);
+    system("leaks cub3d");
     printf("MAP IS OK!\n");
 }
 
@@ -55,7 +56,9 @@ void parse_line(char *line)
         }
         if (line[i] == '\0')
         {
+            free(line);
             printf("space or tab on empty line\n");
+            system("leaks cub3d");
             exit(0);
         }
     }    
@@ -95,7 +98,9 @@ void check_line(char *line, t_map *map, int line_count, int *map_start_flag)
         }
         else
         {
+            free(line);
             printf("Invalid character in infos: %c\n", line[i]);
+            system("leaks cub3d");
             exit(0);
         }
         i++;
@@ -115,7 +120,7 @@ void route_valid(char *line, t_map *map)
             i += 2;
             while (line[i] == ' ' || line[i] == '\t' || line[i] == '.' || line[i] == '/')
                 i++;
-            check_xpm(&line[i]);
+            check_xpm(&line[i], map);
             w_xpm_to_map(line[0], line[1], &line[i], map);
         }
         else if (line[i] == 'F' || line[i] == 'C')

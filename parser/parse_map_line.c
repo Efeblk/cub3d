@@ -32,7 +32,9 @@ void check_map_line(char *line, t_map *map)
         }
         else
         {
+            free(map->free_line);
             printf("Error\nInvalid character in !! map: ' %d '\n", line[i]);
+            system("leaks cub3d");
             exit(0);
         }
         i++;
@@ -45,7 +47,9 @@ void check_horizontal_walls(char *line, int i)
     {
         if (line[i + 1] == ' ' || line[i + 1] == '\0' || line[i + 1] == '\n')
         {
+            free(line);
             printf("Error\nInvalid hori map\n");
+            system("leaks cub3d");
             exit(0);
         }
     }
@@ -53,7 +57,9 @@ void check_horizontal_walls(char *line, int i)
     {
         if (line[i - 1] == ' ' || line[i + 1] == ' ' || line[i + 1] == '\0' || line[i - 1] == '\n')
         {
+            free(line);
             printf("Error\nInvalid hori map: %d %c\n", i, line[i]);
+            system("leaks cub3d");
             exit(0);
         }
     }
@@ -72,7 +78,9 @@ int check_player_dir(char dir, int i, t_map *map)
         }
         else
         {
+            free(map->free_line);
             printf("Error\nMultiple player positions\n");
+            system("leaks cub3d");
             exit(0);
         }
     }

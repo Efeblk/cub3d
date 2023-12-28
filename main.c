@@ -30,5 +30,6 @@ int main(int argc, char **argv)
     {
         printf("Error\nNo arguments\n");
     }
+    system("leaks cub3d");
     return 0;
 }

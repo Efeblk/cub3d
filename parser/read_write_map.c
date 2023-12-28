@@ -12,7 +12,8 @@ void read_write_map(char *mapname, t_map *map)
     map->map[0] = fill_with_spaces(map->map_width);
     while (i < map->line_to_skip)
     {
-        get_next_line(fd);
+        line = get_next_line(fd);
+        free(line);
         i++;
     }
     i = 1;
@@ -21,6 +22,9 @@ void read_write_map(char *mapname, t_map *map)
         if (line[0] == '\n')
         {
             printf("another map\n");
+            free_char_array(map->map);
+            free(line);
+            system("leaks cub3d");
             exit(0);
         }
         newline_to_null(line);
@@ -28,6 +32,7 @@ void read_write_map(char *mapname, t_map *map)
         ++i;
         free(line);
     }
+    free(line);
     map->map[i] = fill_with_spaces(map->map_width);
     map->map[i + 1] = NULL;
 }

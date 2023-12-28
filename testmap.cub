@@ -1,10 +1,9 @@
 EA ./assets/colorstone.xpm          
 SO      ./assets/wood.xpm   
 WE              ./assets/greystone.xpm
-
 NO./assets/purplestone.xpm
 
-F     55,    55,   55
+F     55,    255,   55
 C  44, 23  ,  41
 
  1111111
@@ -14,5 +13,3 @@ C  44, 23  ,  41
 111111
 111111111111
 11111111111
-
-

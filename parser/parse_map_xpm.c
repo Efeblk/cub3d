@@ -1,9 +1,9 @@
 #include "cub3d.h"
 
-void check_xpm(char *line)
+void check_xpm(char *line, t_map *map)
 {
     int i;
-    printf("line: %s\n", line);
+
     i = last_spaces_tonull(line);
     while (line[i])
     {
@@ -16,13 +16,17 @@ void check_xpm(char *line)
         {
             printf("c: %c%c%c%c\n", line[i], line[i - 1], line[i - 2], line[i - 3]);
             printf("XPM ERROR %s \n", line);
+            free(map->free_line);
+            system("leaks cub3d");
             exit(0);
         }
         --i;
     }
     if (file_exists(line) == 0)
     {
+        free(map->free_line);
         printf("XPM DOES NOT EXIST: %s\n", line);
+        system("leaks cub3d");
         exit(0);
     }
 }
@@ -33,7 +37,9 @@ void w_xpm_to_map(char c1, char c2, char *line, t_map *map)
     {
         if (map->we != NULL)
         {
+            free(map->free_line);
             printf("Error\nMultiple WE\n");
+            system("leaks cub3d");
             exit(0);
         }   
         map->we = ft_strdup(line);
@@ -42,7 +48,9 @@ void w_xpm_to_map(char c1, char c2, char *line, t_map *map)
     {
         if (map->ea != NULL)
         {
+            free(map->free_line);
             printf("Error\nMultiple EA\n");
+            system("leaks cub3d");
             exit(0);
         }
         map->ea = ft_strdup(line);
@@ -51,7 +59,9 @@ void w_xpm_to_map(char c1, char c2, char *line, t_map *map)
     {
         if (map->so != NULL)
         {
+            free(map->free_line);
             printf("Error\nMultiple SO\n");
+            system("leaks cub3d");
             exit(0);
         }
         map->so = ft_strdup(line);
@@ -60,7 +70,9 @@ void w_xpm_to_map(char c1, char c2, char *line, t_map *map)
     {
         if (map->no != NULL)
         {
+            free(map->free_line);
             printf("Error\nMultiple NO\n");
+            system("leaks cub3d");
             exit(0);
         }
         map->no = ft_strdup(line);

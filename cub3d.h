@@ -37,6 +37,7 @@ typedef struct s_map
     int player_y;
     int all_infos_set;
     int line_to_skip;
+    char *free_line;
 }               t_map;
 
 //UTILS
@@ -69,13 +70,13 @@ void parse_line(char *line);
 void check_line(char *line, t_map *map, int line_count, int *map_start_flag);
 void route_valid(char *line, t_map *map);
 
-void check_xpm(char *line);
+void check_xpm(char *line, t_map *map);
 void check_rgb(char *line, char c,t_map *map);
 void w_xpm_to_map(char c1, char c2, char *line, t_map *map);
 
 void w_rgb_to_map(int *rgb, char c, t_map *map);
-void check_rgb_value(int value);
-void count_coma(char *line);
+void check_rgb_value(int value, t_map *map, char *tmp_value, int *rgb);
+void count_coma(char *line, t_map *map);
 
 int check_infos_set(t_map *map);
 
