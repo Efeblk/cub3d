@@ -21,11 +21,11 @@ void check_map_line(char *line, t_map *map)
         if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E' || line[i] == 'W' ||
         line[i] == '0' || line[i] == '1' || line[i] == ' ')
         {
-            if (check_player_dir(line[i], i, map))
+            if(check_player_dir(line[i], i, map))
             {
                 line[i] = '0';
             }
-            else if(line[i] == '0')
+            if (line[i] == '0')
             {
                 check_horizontal_walls(line, i);
             }

@@ -21,7 +21,7 @@ void check_rgb(char *line, char c, t_map *map)
         printf("RGB !! line[i] = %c\n", line[i]);
         if (line[i] && !(line[i] >= '0' && line[i] <= '9') && line[i] != ',')
         {
-            printf("linei %d", line[i]);
+            printf("ERROR linei %d", line[i]);
             free(tmp_value);
             free(rgb);
             free(map->free_line);

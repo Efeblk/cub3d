@@ -101,6 +101,8 @@ void newline_to_null(char *line);
 char *fill_with_spaces(int line_width);
 void skip_lines(int line_to_skip, int fd);
 void fill_map(int fd, t_map *map);
+void dir_to_zero(char *map_line);
+void check_more_maps(char *line, t_map *map);
 
 //check_vertical_walls.c
 void check_vertical_walls(t_map *map);

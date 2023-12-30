@@ -19,14 +19,8 @@ void fill_map(int fd, t_map *map)
     i = 1;
     while ((line = get_next_line(fd)) && i < map->map_height + 1)
     {
-        if (line[0] == '\n')
-        {
-            printf("another map\n");
-            free_char_array(map->map);
-            free(line);
-            system("leaks cub3d");
-            exit(0);
-        }
+        check_more_maps(line, map);
+        dir_to_zero(line);
         newline_to_null(line);
         map->map[i] = ft_strdup(line);
         ++i;
