@@ -18,6 +18,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#include "mlx/mlx.h"
+
 #define BUFFER_SIZE 1
 #define INT_MAX 2147483647
 #define INT_MIN -2147483648
@@ -106,6 +108,11 @@ void check_more_maps(char *line, t_map *map);
 
 //check_vertical_walls.c
 void check_vertical_walls(t_map *map);
+
+//init_game.c
+
+void init_game(t_map *map);
+int close_window(void);
 
 ///////////////////
 //GET NEXT LINE
