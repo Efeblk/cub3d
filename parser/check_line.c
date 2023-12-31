@@ -22,7 +22,7 @@ void check_line(char *line, t_map *map, int line_count, int *map_start_flag)
                 if (*map_start_flag == 0)
                 {
                     printf("map_start_flag: %s\n", line);
-                    map->line_to_skip = line_count;
+                    map->helpers->line_to_skip = line_count;
                     *map_start_flag = 1;
                 } 
                 parse_map_line(line, map);

@@ -15,13 +15,17 @@
 int main(int argc, char **argv)
 {
     t_map map;
-    
-    map_init(&map);
+    t_game game;
+    t_helpers helpers;
+    t_player player;
+
+    map_init(&map, &helpers, &player);
     if (argc == 2)
     {
         parse_arg(argv[1]);
         parse_map(argv[1], &map);
-        init_game(&map);
+        game.map = &map;
+        init_game(&game);
     }
     else if (argc > 2)
     {

@@ -24,7 +24,7 @@ void parse_map(char *arg, t_map *map)
     fd = open(arg, O_RDONLY);
     while ((line = get_next_line(fd)))
     {
-        map->free_line = line; //exit olunca orijinal line free yapmak icin
+        map->helpers->free_line = line; //exit olunca orijinal line free yapmak icin
         parse_line(line);
         check_line(line, map, line_count, &map_start_flag);        
         free(line);

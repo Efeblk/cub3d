@@ -32,7 +32,7 @@ void check_map_line(char *line, t_map *map)
         }
         else
         {
-            free(map->free_line);
+            free(map->helpers->free_line);
             printf("Error\nInvalid character in !! map: ' %d '\n", line[i]);
             system("leaks cub3d");
             exit(0);
@@ -69,16 +69,16 @@ int check_player_dir(char dir, int i, t_map *map)
 {
     if (dir == 'N' || dir == 'S' || dir == 'E' || dir == 'W')
     {
-        if (map->player_dir == 'x')
+        if (map->player->dir == 'x')
         {
-            map->player_dir = dir;
-            map->player_x = i;
-            map->player_y = map->map_height;
+            map->player->dir = dir;
+            map->player->x = i;
+            map->player->y = map->map_height;
             return 1;
         }
         else
         {
-            free(map->free_line);
+            free(map->helpers->free_line);
             printf("Error\nMultiple player positions\n");
             system("leaks cub3d");
             exit(0);

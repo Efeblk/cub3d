@@ -23,6 +23,12 @@
 #define BUFFER_SIZE 1
 #define INT_MAX 2147483647
 #define INT_MIN -2147483648
+
+typedef struct s_game
+{
+    struct s_map *map;
+
+}               t_game;
 typedef struct s_map
 {
     char **map;
@@ -34,14 +40,22 @@ typedef struct s_map
     char *no;
     int ceiling_color;
     int floor_color;
-    char player_dir;
-    int player_x;
-    int player_y;
+    struct s_player *player;
+    struct s_helpers *helpers;
+}               t_map;
+
+typedef struct s_player
+{
+    int x;
+    int y;
+    char dir;
+}               t_player;
+typedef struct s_helpers
+{
     int all_infos_set;
     int line_to_skip;
     char *free_line;
-}               t_map;
-
+}           t_helpers;
 //UTILS
 int file_exists(char *file);
 int last_spaces_tonull(char *line);
@@ -63,7 +77,7 @@ void free_char_array(char **array);
 ///////////////////////////
 
 //main.c
-void map_init(t_map *map);
+void map_init(t_map *map, t_helpers *helpers, t_player *player);
 
 //parse_arg.c
 void parse_arg(char *arg);
@@ -111,7 +125,7 @@ void check_vertical_walls(t_map *map);
 
 //init_game.c
 
-void init_game(t_map *map);
+void init_game(t_game *game);
 int close_window(void);
 
 ///////////////////

@@ -6,7 +6,7 @@ void read_write_map(char *mapname, t_map *map)
 
     fd = open(mapname, O_RDONLY, 0644);
     map->map = malloc(sizeof(char *) * (map->map_height + 3)); //null + top + bottom
-    skip_lines(map->line_to_skip, fd);
+    skip_lines(map->helpers->line_to_skip, fd);
     fill_map(fd, map);
 }
 
