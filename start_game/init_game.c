@@ -5,8 +5,8 @@ void init_game(t_game *game)
     game->window_width = 800;
     game->window_height = 600;
     game->mlx = mlx_init();
+    load_assets(game->mlx, game);
     open_window(game);
-
 }
 //örnek 1
 /*

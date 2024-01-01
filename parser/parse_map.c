@@ -33,6 +33,7 @@ void parse_map(char *arg, t_map *map)
     close(fd);
     read_write_map(arg,map);
     check_vertical_walls(map);
+    change_map(map);
     system("leaks cub3d");
     if(check_infos_set(map) == 1)
     {

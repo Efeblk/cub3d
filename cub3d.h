@@ -135,18 +135,22 @@ void check_more_maps(char *line, t_map *map);
 //check_vertical_walls.c
 void check_vertical_walls(t_map *map);
 
+//change_map.c
+void change_map(t_map *map);
+
 //start_game.c
 void start_game(t_game *game);
 
 //init_game.c
 void init_game(t_game *game);
+void load_assets(void *mlx, t_game *game);
 
 //mlx_window.c
 void open_window(t_game *game);
 int close_window(void);
 
 //draw_map.c
-void draw_map(void *mlx, void *window, char **map);
+void draw_map(void *mlx, void *window, char **map, t_game *game);
 
 ///////////////////
 //GET NEXT LINE
