@@ -1,5 +1,5 @@
-NOM = libinit_game.a
-SRC = init_game.c
+NOM = libstart_game.a
+SRC = init_game.c mlx_window.c start_game.c load_assets.c draw_map.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc

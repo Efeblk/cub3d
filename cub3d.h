@@ -23,11 +23,15 @@
 #define BUFFER_SIZE 1
 #define INT_MAX 2147483647
 #define INT_MIN -2147483648
-
+#define BLOCK_SIZE 40
 typedef struct s_game
 {
     struct s_map *map;
-
+    struct s_assets *assets;
+    void *mlx;
+    void *window;
+    int window_width;
+    int window_height;
 }               t_game;
 typedef struct s_map
 {
@@ -56,6 +60,14 @@ typedef struct s_helpers
     int line_to_skip;
     char *free_line;
 }           t_helpers;
+
+typedef struct s_assets
+{
+    void *n;
+    void *s;
+    void *w;
+    void *e;
+}               t_assets;
 //UTILS
 int file_exists(char *file);
 int last_spaces_tonull(char *line);
@@ -123,10 +135,18 @@ void check_more_maps(char *line, t_map *map);
 //check_vertical_walls.c
 void check_vertical_walls(t_map *map);
 
-//init_game.c
+//start_game.c
+void start_game(t_game *game);
 
+//init_game.c
 void init_game(t_game *game);
+
+//mlx_window.c
+void open_window(t_game *game);
 int close_window(void);
+
+//draw_map.c
+void draw_map(void *mlx, void *window, char **map);
 
 ///////////////////
 //GET NEXT LINE

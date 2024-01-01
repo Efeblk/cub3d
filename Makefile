@@ -10,7 +10,7 @@ PARSER = parser
 UTILS = utils
 GNL = get_next_line
 MLX = mlx
-IG = init_game
+IG = start_game
 # BUILTIN = builtin
 
 all: $(NAME)
@@ -21,7 +21,7 @@ $(NAME): $(OBJ)
 	@make -s -C $(PARSER)
 	@make -s -C $(IG)
 	@make -s -C $(MLX)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(PARSER)/libparser.a $(UTILS)/libutils.a $(GNL)/libget_next_line.a $(MLX)/libmlx.a $(IG)/libinit_game.a -framework OpenGL -framework AppKit
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(PARSER)/libparser.a $(UTILS)/libutils.a $(GNL)/libget_next_line.a $(MLX)/libmlx.a $(IG)/libstart_game.a -framework OpenGL -framework AppKit
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<

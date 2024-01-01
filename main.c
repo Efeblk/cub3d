@@ -14,8 +14,8 @@
 
 int main(int argc, char **argv)
 {
-    t_map map;
     t_game game;
+    t_map map;
     t_helpers helpers;
     t_player player;
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
         parse_arg(argv[1]);
         parse_map(argv[1], &map);
         game.map = &map;
-        init_game(&game);
+        start_game(&game);
     }
     else if (argc > 2)
     {
