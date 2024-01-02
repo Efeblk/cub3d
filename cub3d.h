@@ -23,7 +23,15 @@
 #define BUFFER_SIZE 1
 #define INT_MAX 2147483647
 #define INT_MIN -2147483648
-#define BLOCK_SIZE 40
+#define BLOCK_SIZE 64
+
+#define ESC 17
+#define KEY_PRESS 2
+#define KEY_RELEASE 3
+#define W 13
+#define S 1
+#define A 0
+#define D 2
 typedef struct s_game
 {
     struct s_map *map;
@@ -50,8 +58,8 @@ typedef struct s_map
 
 typedef struct s_player
 {
-    int x;
-    int y;
+    float x;
+    float y;
     char dir;
 }               t_player;
 typedef struct s_helpers
@@ -135,9 +143,6 @@ void check_more_maps(char *line, t_map *map);
 //check_vertical_walls.c
 void check_vertical_walls(t_map *map);
 
-//change_map.c
-void change_map(t_map *map);
-
 //start_game.c
 void start_game(t_game *game);
 
@@ -147,10 +152,16 @@ void load_assets(void *mlx, t_game *game);
 
 //mlx_window.c
 void open_window(t_game *game);
+
+//init_hooks.c
+void init_hooks(t_game *game);
+int key_pressed(int keycode, t_game *game);
 int close_window(void);
 
 //draw_map.c
 void draw_map(void *mlx, void *window, char **map, t_game *game);
+//draw_player.c
+void draw_player(void *mlx, void *window, char **map, t_game *game);
 
 ///////////////////
 //GET NEXT LINE

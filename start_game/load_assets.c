@@ -2,16 +2,11 @@
 
 void load_assets(void *mlx, t_game *game)
 {
-    int height = 64;
-    int width = 64;
-    printf("NO: %s\n", game->map->no);
-    printf("SO: %s\n", game->map->so);
-    printf("WE: %s\n", game->map->we);
-    printf("EA: %s\n", game->map->ea);
-    game->assets->n = mlx_xpm_file_to_image(mlx, game->map->no, &height, &width);
-    game->assets->s = mlx_xpm_file_to_image(mlx, game->map->so, &height, &width);
-    game->assets->w = mlx_xpm_file_to_image(mlx, game->map->we, &height, &width);
-    game->assets->e = mlx_xpm_file_to_image(mlx, game->map->ea, &height, &width);
+    int block_size = BLOCK_SIZE;
+    game->assets->n = mlx_xpm_file_to_image(mlx, game->map->no, &block_size, &block_size);
+    game->assets->s = mlx_xpm_file_to_image(mlx, game->map->so, &block_size, &block_size);
+    game->assets->w = mlx_xpm_file_to_image(mlx, game->map->we, &block_size, &block_size);
+    game->assets->e = mlx_xpm_file_to_image(mlx, game->map->ea, &block_size, &block_size);
     if (game->assets->n == NULL || game->assets->s == NULL || game->assets->w == NULL || game->assets->e == NULL)
     {
         printf("Error\nInvalid texture path\n");

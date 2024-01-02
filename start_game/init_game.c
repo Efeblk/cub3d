@@ -1,27 +1,13 @@
 #include "cub3d.h"
 
 void init_game(t_game *game)
-{
-    game->window_width = 800;
-    game->window_height = 600;
+{   
+    game->map->map_height += 2;
+    //game->map->map_width += 1;
+    game->window_width = game->map->map_width * BLOCK_SIZE;
+    game->window_height = game->map->map_height * BLOCK_SIZE;
     game->mlx = mlx_init();
     load_assets(game->mlx, game);
     open_window(game);
+    init_hooks(game);
 }
-//örnek 1
-/*
-NNNNNNNNNNNN
-W0000000000E
-W0000E00000E
-W0000000000E
-SSSSSSSSSSSS
-*/
-
-//örnek 2
-/*
-WWWWWWWWWWWW
-S0000000000N
-S0000E00000N
-S0000000000N
-EEEEEEEEEEEE
-*/
