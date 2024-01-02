@@ -11,3 +11,9 @@ void init_game(t_game *game)
     open_window(game);
     init_hooks(game);
 }
+
+void init_hooks(t_game *game)
+{
+    mlx_hook(game->window, ESC, 0, &close_window, 0);
+    mlx_hook(game->window, KEY_PRESS, 0, &key_pressed, game);
+}
