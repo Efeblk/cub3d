@@ -7,6 +7,8 @@ void init_game(t_game *game)
     game->window_width = game->map->map_width * BLOCK_SIZE;
     game->window_height = game->map->map_height * BLOCK_SIZE;
     game->mlx = mlx_init();
+    game->map->player->x *= BLOCK_SIZE;
+    game->map->player->y *= BLOCK_SIZE;
     load_assets(game->mlx, game);
     open_window(game);
     init_hooks(game);

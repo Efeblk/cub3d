@@ -8,7 +8,7 @@ void map_init(t_map *map, t_helpers *helpers, t_player *player)
     player->x = 0;
     player->y = 0;
     player->dir = 'x';
-
+    player->look_dir = 0;
     map->player = player;
     map->helpers = helpers;
     map->map = NULL;

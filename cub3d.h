@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <math.h>
 
 #include "mlx/mlx.h"
 
@@ -32,6 +33,10 @@
 #define S 1
 #define A 0
 #define D 2
+#define LEFT_ARROW 123
+#define RIGHT_ARROW 124
+
+#define MOVE_SPEED 2
 typedef struct s_game
 {
     struct s_map *map;
@@ -58,9 +63,10 @@ typedef struct s_map
 
 typedef struct s_player
 {
-    float x;
-    float y;
+    int x;
+    int y;
     char dir;
+    int look_dir;
 }               t_player;
 typedef struct s_helpers
 {
