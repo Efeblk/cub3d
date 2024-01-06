@@ -8,10 +8,35 @@ void draw_vertical_line(void *mlx, void *window, int x, int draw_start, int draw
     }
 }
 
+void draw_image_slice(t_game *game, void *img, int offset, int x)
+{
+    int img_width;
+    int img_height;
+
+    img_width = 64;
+    img_height = 64;
+    char *img_data = mlx_get_data_addr(img, &img_width, &img_height, NULL);
+
+    if (offset >= img_width) {
+        return; // offset is outside the bounds of the image data
+    }
+
+    for (int y = 0; y < img_height; y++)
+    {
+        if (y >= img_height) {
+            return; // y is outside the bounds of the image data
+        }
+
+        int color = *(int *)(img_data + (y * img_width + offset) * 4);
+        mlx_pixel_put(game->mlx, game->window, x, y, color);
+    }
+}
+
 void draw_player_3d(t_game *game)
 {
     int fov = 60; // adjust as per your game's requirements
     int screen_width = 800; // adjust as per your game's requirements
+    //double MAX_RAY_LENGTH = sqrt(game->map->map_width * game->map->map_width + game->map->map_height * game->map->map_height);
     for (int i = -fov / 2; i <= fov / 2; i++) {
         double ray_length = 0.0;
         double rad = (game->map->player->look_dir + i) * M_PI / 180.0;
@@ -30,6 +55,8 @@ void draw_player_3d(t_game *game)
                 hit = 1;
             } else if (game->map->map[map_y][map_x] == '1') {
                 hit = 1;
+                //int offset = (int)(ray_length / MAX_RAY_LENGTH * 64);
+                //draw_image_slice(game, game->assets->e, offset, i + fov / 2);
             }
         }
 
@@ -40,12 +67,7 @@ void draw_player_3d(t_game *game)
         int draw_start = -line_height / 2 + game->window_height / 2; // replace screen_height with game->window_height
         int draw_end = line_height / 2 + game->window_height / 2; // replace screen_height with game->window_height
 
-        // draw the line
-// draw the line
         int x = (i + fov / 2) * (screen_width / fov);
         draw_vertical_line(game->mlx, game->window, x, draw_start, draw_end, 0xFF0000);
     }
-
-    // draw 2D minimap
-    //draw_minimap(game);
 }
