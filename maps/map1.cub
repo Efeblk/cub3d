@@ -1,0 +1,25 @@
+
+
+
+
+EA ./pics/colorstone.xpm
+WE			./pics/greystone.xpm
+
+C               0,1,255   
+
+            F       255,127,64          
+
+NO ./pics/purplestone.xpm
+
+
+
+	SO ./pics/wood.xpm	
+111
+101
+101
+1W1
+111
+
+
+
+
