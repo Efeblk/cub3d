@@ -41,9 +41,8 @@ void draw_player_2d(void *mlx, void *window, char **map, t_game *game)
 
     int player_x = game->map->player->x / MINI_MAP_SCALE;
     int player_y = game->map->player->y / MINI_MAP_SCALE;
-    int x = 0, y = 1; // radius of the circle
+    int x = 0, y = 10; // radius of the circle
     int d = 3 - 2 * y;
-    draw_circle(mlx, window, player_x, player_y, x, y);
     while (y >= x)
     {
         x++;
@@ -56,5 +55,5 @@ void draw_player_2d(void *mlx, void *window, char **map, t_game *game)
             d = d + 4 * x + 6;
         draw_circle(mlx, window, player_x, player_y, x, y);
     }
-    player_2d_pov(game);
+    //player_2d_pov(game);
 }

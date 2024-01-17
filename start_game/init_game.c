@@ -16,8 +16,16 @@ void init_game(t_game *game)
     init_hooks(game);
 }
 
+void render()
+{
+    draw_minimap(game, game->mlx, game->window);
+    draw_player_2d(game->mlx, game->window, game->map->map, game);
+    draw_player_3d(game);
+}
+
 void init_hooks(t_game *game)
 {
+    mlx_loop_hook(game->mlx, &render, game);
     mlx_hook(game->window, ESC, 0, &close_window, 0);
     mlx_hook(game->window, KEY_PRESS, 0, &key_pressed, game);
 }
