@@ -86,9 +86,5 @@ int key_pressed(int keycode, t_game *game)
         if (game->map->player->look_dir_2d >= 360.0)
             game->map->player->look_dir_2d -= 360.0;
     }
-    mlx_clear_window(game->mlx, game->window);
-    draw_minimap(game, game->mlx, game->window);
-    draw_player_2d(game->mlx, game->window, game->map->map, game);
-    draw_player_3d(game);
     return (0);
 }
