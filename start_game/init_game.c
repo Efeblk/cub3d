@@ -9,6 +9,8 @@ void init_game(t_game *game)
     game->mlx = mlx_init();
     game->map->player->x *= BLOCK_SIZE;
     game->map->player->y *= BLOCK_SIZE;
+    game->map->player->fov = 60;
+    game->map->player->look_dir_2d = 0;
     load_assets(game->mlx, game);
     open_window(game);
     init_hooks(game);

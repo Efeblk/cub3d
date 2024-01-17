@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2023/12/14 17:47:30 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/01/17 17:06:11 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ typedef struct s_player
     double x;
     double y;
     char dir;
-    double look_dir;
+    double look_dir_2d;
+    double fov;
+    struct s_vector3 *look_dir_3d;
 }               t_player;
 typedef struct s_helpers
 {
@@ -82,6 +84,13 @@ typedef struct s_assets
     void *w;
     void *e;
 }               t_assets;
+
+typedef struct s_vector3
+{
+    double x;
+    double y;
+    double z;
+}               t_vector3;
 //UTILS
 int file_exists(char *file);
 int last_spaces_tonull(char *line);

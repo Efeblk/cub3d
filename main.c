@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:04 by ibalik            #+#    #+#             */
-/*   Updated: 2023/12/14 17:37:02 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/01/17 17:18:57 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     {
         printf("Error\nNo arguments\n");
     }
-    system("leaks cub3d");
+    //system("leaks cub3d");
     print_char_array(map.map);
     printf("map C: %d\n", map.ceiling_color);
     printf("map F: %d\n", map.floor_color);
