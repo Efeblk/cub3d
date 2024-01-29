@@ -27,9 +27,11 @@ void draw_line(void *mlx, void *win, float x, float y, float angle, int length, 
 void player_2d_pov(t_game *game)
 {
     int fov = game->map->player->fov;
-    while (fov >= 0)
+    int ray_location = game->map->player->look_dir_2d - fov / 2;
+    while (fov > 0)
     {
-        draw_line(game->mlx, game->window, game->map->player->x, game->map->player->y, fov, 100, 0x00FF00);
+        draw_line(game->mlx, game->window, game->map->player->x, game->map->player->y, ray_location, 100, 0x00FF00);
+        ray_location++;
         fov -= 1;
     }
 }
@@ -55,5 +57,5 @@ void draw_player_2d(void *mlx, void *window, char **map, t_game *game)
             d = d + 4 * x + 6;
         draw_circle(mlx, window, player_x, player_y, x, y);
     }
-    //player_2d_pov(game);
+    player_2d_pov(game);
 }
