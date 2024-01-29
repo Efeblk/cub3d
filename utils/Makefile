@@ -1,5 +1,5 @@
 NOM = libutils.a
-SRC = utils.c utils2.c utils3.c utils4.c ft_atoi.c array_utils.c
+SRC = utils.c utils2.c utils3.c utils4.c ft_atoi.c array_utils.c radian_utils.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc

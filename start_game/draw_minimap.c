@@ -13,12 +13,16 @@ void draw_minimap(t_game *game, void *mlx, void *window)
         {
             if (map[row][col] == '1')
             {
-                for (y = 0; y < BLOCK_SIZE / MINI_MAP_SCALE; y++)
+                y = 0;
+                while (y < BLOCK_SIZE / MINI_MAP_SCALE)
                 {
-                    for (x = 0; x < BLOCK_SIZE / MINI_MAP_SCALE; x++)
+                    x = 0;
+                    while (x < BLOCK_SIZE / MINI_MAP_SCALE)
                     {
                         mlx_pixel_put(mlx, window, col * BLOCK_SIZE / MINI_MAP_SCALE + x, row * BLOCK_SIZE / MINI_MAP_SCALE + y, 0xFFFFFF);
+                        x++;
                     }
+                    y++;
                 }
             }
             else if (map[row][col] == '0' || map[row][col] == ' ')
@@ -30,3 +34,4 @@ void draw_minimap(t_game *game, void *mlx, void *window)
         ++row;
     }
 }
+

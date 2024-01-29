@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/01/17 17:06:11 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/01/29 12:21:39 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_player
     double x;
     double y;
     char dir;
-    double look_dir_2d;
+    float look_dir_radian;
     double fov;
     struct s_vector3 *look_dir_3d;
 }               t_player;
@@ -109,6 +109,9 @@ int	ft_atoi(const char *str);
 
 void print_char_array(char **array); //BUNU SİL!!!!
 void free_char_array(char **array);
+
+float convert_to_radian(float angle);
+float convert_to_degree(float radian);
 ///////////////////////////
 
 //main.c

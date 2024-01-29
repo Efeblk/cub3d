@@ -14,12 +14,10 @@ void draw_circle(void *mlx, void *window, int xc, int yc, int x, int y)
 
 void draw_line(void *mlx, void *win, float x, float y, float angle, int length, int color) 
 {
-    float angleRad = angle * M_PI / 180.0;  // Convert angle to radians
-
     int i;
     for (i = 0; i < length; i++) {
-        int drawX = x + i * cos(angleRad);
-        int drawY = y + i * sin(angleRad);
+        int drawX = x + i * cos(angle);
+        int drawY = y + i * sin(angle);
         mlx_pixel_put(mlx, win, drawX, drawY, color);
     }
 }
@@ -27,11 +25,14 @@ void draw_line(void *mlx, void *win, float x, float y, float angle, int length, 
 void player_2d_pov(t_game *game)
 {
     int fov = game->map->player->fov;
-    int ray_location = game->map->player->look_dir_2d - fov / 2;
+    float radian_fov = convert_to_radian(fov / 2);
+
+    float ray_location = game->map->player->look_dir_radian - radian_fov;
+    float increment = convert_to_radian(1);
     while (fov > 0)
     {
         draw_line(game->mlx, game->window, game->map->player->x, game->map->player->y, ray_location, 100, 0x00FF00);
-        ray_location++;
+        ray_location += increment;
         fov -= 1;
     }
 }

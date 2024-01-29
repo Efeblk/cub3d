@@ -10,7 +10,7 @@ void init_game(t_game *game)
     game->map->player->x *= BLOCK_SIZE;
     game->map->player->y *= BLOCK_SIZE;
     game->map->player->fov = 60;
-    game->map->player->look_dir_2d = 0;
+    game->map->player->look_dir_radian = 0;
     load_assets(game->mlx, game);
     open_window(game);
     init_hooks(game);
@@ -31,5 +31,5 @@ void init_hooks(t_game *game)
 {
     mlx_hook(game->window, ESC, 0, &close_window, 0);
     mlx_hook(game->window, KEY_PRESS, 0, &key_pressed, game);
-    mlx_loop_hook(game->mlx, &render, game);
+    mlx_loop_hook(game->mlx, &render, game);  
 }
