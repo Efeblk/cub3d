@@ -72,8 +72,8 @@ int check_player_dir(char dir, int i, t_map *map)
         if (map->player->dir == 'x')
         {
             map->player->dir = dir;
-            map->player->x = i;
-            map->player->y = map->map_height;
+            map->player->posX= i;
+            map->player->posY = map->map_height;
             return 1;
         }
         else
