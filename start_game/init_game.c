@@ -2,7 +2,6 @@
 
 void init_game(t_game *game)
 {   
-    game->mlx = mlx_init();
     init_player(game->map->player);
     load_assets(game->mlx, game);
     init_window(game);
@@ -17,16 +16,10 @@ void init_player(t_player *player)
 
 void init_window(t_game *game)
 {
-    game->map->map_height += 2;
+    game->map->map_height += 2; // parser hatalı olabilir (?), normalde bu satırın olmaması gerekli
     game->window_width = game->map->map_width * BLOCK_SIZE;
     game->window_height = game->map->map_height * BLOCK_SIZE;
     open_window(game);
-}
-
-int render(t_game *game)
-{
-    draw_minimap(game, game->mlx, game->window);
-    return 0;
 }
 
 void init_hooks(t_game *game)

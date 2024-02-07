@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/07 15:24:51 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/07 17:38:36 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ typedef struct s_game
 {
     struct s_map *map;
     struct s_assets *assets;
+    struct s_img_data *img;
     void *mlx;
     void *window;
     int window_width;
     int window_height;
+   
 }               t_game;
 
 typedef struct s_map
@@ -172,7 +174,6 @@ void start_game(t_game *game);
 
 //init_game.c
 void init_game(t_game *game);
-void init_mlx_dep(t_game *game);
 void init_player(t_player *player);
 void init_window(t_game *game);
 void load_assets(void *mlx, t_game *game);
@@ -182,18 +183,14 @@ void open_window(t_game *game);
 
 //init_hooks.c
 void init_hooks(t_game *game);
-int key_pressed(int keycode, t_game *game);
 int close_window(void);
 
 //draw_map.c
 void draw_minimap(t_game *game, void *mlx, void *window);
+void my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 
-//draw_player_2d.c
-void draw_player_2d(void *mlx, void *window, char **map, t_game *game);
-
-//draw_player_3d.c
-void draw_player_3d(t_game *game);
-
+//render.c
+int render(t_game *game);
 ///////////////////
 //GET NEXT LINE
 char	*get_next_line(int fd);
