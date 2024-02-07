@@ -1,37 +1,35 @@
 #include "cub3d.h"
 
+void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+
 void draw_minimap(t_game *game, void *mlx, void *window)
 {
-    int row, col, x, y;
-    char **map = game->map->map;
-
-    row = 0;
-    while (map[row] != NULL)
+    t_img_data img;
+    img.img = mlx_new_image(mlx, game->window_width, game->window_height);
+    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+    int x = 0;
+    int y = 0;
+    int color = 0x00FF0000;
+    while (y < game->map->map_height)
     {
-        col = 0;
-        while (map[row][col] != '\0')
+        x = 0;
+        while (x < game->map->map_width)
         {
-            if (map[row][col] == '1')
+            if (game->map->map[y][x] == '1')
             {
-                y = 0;
-                while (y < BLOCK_SIZE / MINI_MAP_SCALE)
-                {
-                    x = 0;
-                    while (x < BLOCK_SIZE / MINI_MAP_SCALE)
-                    {
-                        mlx_pixel_put(mlx, window, col * BLOCK_SIZE / MINI_MAP_SCALE + x, row * BLOCK_SIZE / MINI_MAP_SCALE + y, 0xFFFFFF);
-                        x++;
-                    }
-                    y++;
-                }
+                my_mlx_pixel_put(&img, x * BLOCK_SIZE, y * BLOCK_SIZE, color);
             }
-            else if (map[row][col] == '0' || map[row][col] == ' ')
-            {
-                mlx_pixel_put(mlx, window, col * BLOCK_SIZE / MINI_MAP_SCALE, row * BLOCK_SIZE / MINI_MAP_SCALE, 0x000000);
-            }
-            ++col;
+            x++;
         }
-        ++row;
+        y++;
     }
+    mlx_put_image_to_window(mlx, window, img.img, 0, 0);
+    mlx_destroy_image(mlx, img.img);
 }
 

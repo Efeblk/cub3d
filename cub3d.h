@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/06 18:16:18 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/07 15:24:51 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 #define D 2
 #define LEFT_ARROW 123
 #define RIGHT_ARROW 124
-
 #define MOVE_SPEED 2
+
 typedef struct s_game
 {
     struct s_map *map;
@@ -89,12 +89,14 @@ typedef struct s_assets
     void *e;
 }               t_assets;
 
-typedef struct s_vector3
-{
-    double x;
-    double y;
-    double z;
-}               t_vector3;
+typedef struct	s_img_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_img_data;
+
 //UTILS
 int file_exists(char *file);
 int last_spaces_tonull(char *line);

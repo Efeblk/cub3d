@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:04 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/06 18:12:02 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/07 15:55:42 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,5 @@ int main(int argc, char **argv)
     }
     //system("leaks cub3d");
     print_char_array(map.map);
-    printf("map C: %d\n", map.ceiling_color);
-    printf("map F: %d\n", map.floor_color);
     return 0;
 }
