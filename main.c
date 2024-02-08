@@ -25,6 +25,7 @@ int main(int argc, char **argv)
         parse_arg(argv[1]);
         parse_map(argv[1], &map);
         game.map = &map;
+        
         start_game(&game);
     }
     else if (argc > 2)

@@ -10,8 +10,8 @@ void init_game(t_game *game)
 
 void init_player(t_player *player)
 {
-    player->posX *= BLOCK_SIZE;
-    player->posY *= BLOCK_SIZE;
+    player->posX *= BLOCK_SIZE; // +32 gibi bişi olabilir ikisinede, olduğu blokta başlama noktasını ortalamak için.
+    player->posY *= BLOCK_SIZE; 
 }
 
 void init_window(t_game *game)
