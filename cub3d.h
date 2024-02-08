@@ -85,10 +85,10 @@ typedef struct s_helpers
 
 typedef struct s_assets
 {
-    void *n;
-    void *s;
-    void *w;
-    void *e;
+    struct s_img_data *n;
+    struct s_img_data *s;
+    struct s_img_data *w;
+    struct s_img_data *e;
 }               t_assets;
 
 typedef struct	s_img_data {
