@@ -23,7 +23,7 @@ void check_more_maps(char *line, t_map *map)
         printf("another map\n");
         free_char_array(map->map);
         free(line);
-        system("leaks cub3d");
+        //system("leaks cub3d");
         exit(0);
     }
 }

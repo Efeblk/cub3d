@@ -2,7 +2,7 @@
 
 
 
-EA ./assets/colorstone.xpm
+EA ./pics/colorstone.xpm
 WE			./assets/greystone.xpm
 
 C               0,1,255   

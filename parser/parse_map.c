@@ -33,7 +33,7 @@ void parse_map(char *arg, t_map *map)
     close(fd);
     read_write_map(arg,map);
     check_vertical_walls(map);
-    system("leaks cub3d");
+    //system("leaks cub3d");
     if(check_infos_set(map) == 1)
     {
         printf("MAP IS OK!\n");
@@ -60,7 +60,7 @@ void parse_line(char *line)
         {
             free(line);
             printf("space or tab on empty line\n");
-            system("leaks cub3d");
+            //system("leaks cub3d");
             exit(0);
         }
     }    

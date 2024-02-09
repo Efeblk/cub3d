@@ -6,6 +6,7 @@ void init_game(t_game *game)
     load_assets(game->mlx, game);
     init_window(game);
     init_hooks(game);
+
 }
 
 void init_player(t_player *player)

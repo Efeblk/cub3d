@@ -58,7 +58,7 @@ void w_rgb_to_map(int *rgb, char c, t_map *map)
             free(rgb);
             free(map->helpers->free_line);
             printf("Error\n multiple floor color\n");
-            system("leaks cub3d");
+            //system("leaks cub3d");
             exit(0);
         }
     }
@@ -74,7 +74,7 @@ void w_rgb_to_map(int *rgb, char c, t_map *map)
             free(rgb);
             free(map->helpers->free_line);
             printf("Error\n Multiple ceiling color\n");
-            system("leaks cub3d");
+            //system("leaks cub3d");
             exit(0);
         }
     }
@@ -88,7 +88,7 @@ void check_rgb_value(int value, t_map *map, char *tmp_value, int *rgb)
         free(tmp_value);
         free(map->helpers->free_line);
         printf("Error\n RGB value not between 0 and 255\n");
-        system("leaks cub3d");
+        //system("leaks cub3d");
         exit(0);
     }
 }
@@ -110,7 +110,7 @@ void count_coma(char *line, t_map *map)
     {
         free(map->helpers->free_line);
         printf("Error\n RGB value not valid\n");
-        system("leaks cub3d");
+       //system("leaks cub3d");
         exit(0);
     }
 }

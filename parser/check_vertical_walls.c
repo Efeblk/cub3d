@@ -17,7 +17,7 @@ void check_vertical_walls(t_map *map)
                 {
                     printf("Error\nMap vertical walls\n");
                     free_char_array(map->map);
-                    system("leaks cub3d");
+                    //system("leaks cub3d");
                     exit(0);
                 }
             }

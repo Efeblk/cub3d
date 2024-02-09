@@ -19,7 +19,7 @@ void parse_arg(char *arg)
     if (fd == -1)
     {
         printf("Error\nFile not found\n");
-        system("leaks cub3d");
+        //system("leaks cub3d");
         exit(0);
     }
     close(fd);
@@ -41,6 +41,6 @@ void cub_check(char *arg)
         i--;
     }
     printf("Error\nFile extension is not .cub\n");
-    system("leaks cub3d");
+    //system("leaks cub3d");
     exit(0);
 }

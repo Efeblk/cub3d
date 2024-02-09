@@ -1,14 +1,14 @@
-SO ./pics/wood.xpm
-NO ./pics/purplestone.xpm   
+SO ./assets/wood.xpm
+NO ./assets/purplestone.xpm   
 
 F 120,80,10             
-WE ./pics/greystone.xpm
+WE ./assets/greystone.xpm
 C 0,80,160                  
 
 
 
 
-                EA ./pics/colorstone.xpm
+                EA ./assets/colorstone.xpm
 
 
 

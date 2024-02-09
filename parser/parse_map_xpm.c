@@ -14,7 +14,6 @@ void check_xpm(char *line, t_map *map)
         }
         else
         {
-            printf("c: %c%c%c%c\n", line[i], line[i - 1], line[i - 2], line[i - 3]);
             printf("XPM ERROR %s \n", line);
             free(map->helpers->free_line);
             system("leaks cub3d");

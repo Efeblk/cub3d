@@ -47,7 +47,7 @@ int last_spaces_tonull(char *line)
 	int i;
 
 	i = ft_strlen(line) - 1;
-	while (line[i] == ' ')
+	while (line[i] != '\0' && (line[i] == ' ' || line[i] == '\t'))
 	{
 		line[i] = '\0';
 		i--;

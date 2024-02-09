@@ -43,7 +43,7 @@ void freeline_and_exit(char *line)
 {
     free(line);
     printf("Error\nInvalid character in infos\n");
-    system("leaks cub3d");
+    //system("leaks cub3d");
     exit(0);
 }
 
