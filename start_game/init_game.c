@@ -10,13 +10,14 @@ void init_game(t_game *game)
 
 void init_player(t_player *player)
 {
-    player->posX *= BLOCK_SIZE; // +32 gibi bişi olabilir ikisinede, olduğu blokta başlama noktasını ortalamak için.
-    player->posY *= BLOCK_SIZE; 
+    player->posX *= BLOCK_SIZE; 
+    player->posY *= BLOCK_SIZE;
+    player->posX += BLOCK_SIZE / 2; //center of the block
+    player->posY += BLOCK_SIZE / 2; //center of the block
 }
 
 void init_window(t_game *game)
 {
-    game->map->map_height += 2; // parser hatalı olabilir (?), normalde bu satırın olmaması gerekli
     game->window_width = game->map->map_width * BLOCK_SIZE;
     game->window_height = game->map->map_height * BLOCK_SIZE;
     open_window(game);

@@ -37,7 +37,7 @@ void parse_map(char *arg, t_map *map)
     if(check_infos_set(map) == 1)
     {
         printf("MAP IS OK!\n");
-    }       
+    }
 }
 
 void parse_line(char *line)

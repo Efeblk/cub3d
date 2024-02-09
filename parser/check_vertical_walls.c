@@ -25,4 +25,22 @@ void check_vertical_walls(t_map *map)
         }
         ++x;
     }
+    to_original_map(map);
+}
+
+void to_original_map(t_map *map)
+{
+    char **original_map;
+    int i;
+
+    i = 1;
+    original_map = malloc(sizeof(char *) * (map->map_height + 1));
+    while (i < map->map_height + 1)
+    {
+        original_map[i - 1] = ft_strdup(map->map[i]);
+        ++i;
+    }
+    original_map[i - 1] = NULL;
+    free_char_array(map->map);
+    map->map = original_map;
 }

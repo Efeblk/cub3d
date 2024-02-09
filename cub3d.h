@@ -168,6 +168,7 @@ void check_more_maps(char *line, t_map *map);
 
 //check_vertical_walls.c
 void check_vertical_walls(t_map *map);
+void to_original_map(t_map *map);
 
 //start_game.c
 void start_game(t_game *game);
