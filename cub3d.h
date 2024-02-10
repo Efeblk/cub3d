@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/07 17:38:36 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/10 14:17:02 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,9 +186,13 @@ void open_window(t_game *game);
 void init_hooks(t_game *game);
 int close_window(void);
 
-//draw_map.c
-void draw_minimap(t_game *game, void *mlx, void *window);
+//draw_minimap.c
+void draw_minimap(t_game *game);
 void my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
+
+//draw_plater.c
+void draw_player(t_game *game);
+void draw_circle(t_img_data *data, int center_x, int center_y, int radius, int color);
 
 //render.c
 int render(t_game *game);
