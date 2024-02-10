@@ -27,6 +27,7 @@ void init_window(t_game *game)
 void init_hooks(t_game *game)
 {
     mlx_hook(game->window, ESC, 0, close_window, game);
+    mlx_hook(game->window, 2, 0, key_press, game);
     mlx_loop_hook(game->mlx, render, game);
 }
 

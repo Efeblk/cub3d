@@ -45,7 +45,7 @@ void check_horizontal_walls(char *line, int i)
 {
     if(i == 0)
     {
-        if (line[i + 1] == ' ' || line[i + 1] == '\0' || line[i + 1] == '\n')
+        if (line[i + 1] == ' ' || line[i + 1] == '\0' || line[i + 1] == '\n' || line[i - 1] == '\0')
         {
             free(line);
             printf("Error\nInvalid hori map\n");

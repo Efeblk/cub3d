@@ -43,7 +43,7 @@ void draw_empty_block(t_game *game, int x, int y)
         {
             int px = x + dx;
             int py = y + dy;
-            my_mlx_pixel_put(game->img, px, py, 0xFFFFFFFF);
+            my_mlx_pixel_put(game->img, px, py, 0);
             dx++;
         }
         dy++;
@@ -87,8 +87,10 @@ void draw_minimap(t_game *game)
             if (game->map->map[i][j] == '1') 
             {
                 draw_wall_block(game, x, y, game->assets->n);
-            } else 
+            } 
+            else 
             {
+                //draw_wall_block(game, x, y, game->assets->s);
                 draw_empty_block(game, x, y);
             }
             j++;

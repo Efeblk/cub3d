@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/10 14:17:02 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/11 02:43:05 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ typedef struct s_player
     double planeX;
     double planeY;
     char dir;
-    struct s_vector3 *look_dir_3d;
 }               t_player;
 
 typedef struct s_helpers
@@ -193,6 +192,10 @@ void my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 //draw_plater.c
 void draw_player(t_game *game);
 void draw_circle(t_img_data *data, int center_x, int center_y, int radius, int color);
+
+//key_press.c
+int key_press(int keycode, t_game *game);
+
 
 //render.c
 int render(t_game *game);
