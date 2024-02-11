@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/11 02:43:05 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/11 07:53:45 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 #define LEFT_ARROW 123
 #define RIGHT_ARROW 124
 #define MOVE_SPEED 2
-
+#define ROT_SPEED 0.1
 typedef struct s_game
 {
     struct s_map *map;

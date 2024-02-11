@@ -15,6 +15,10 @@ void init_player(t_player *player)
     player->posY *= BLOCK_SIZE;
     player->posX += BLOCK_SIZE / 2; //center of the block
     player->posY += BLOCK_SIZE / 2; //center of the block
+    player->dirX = -1;
+    player->dirY = 0;
+    player->planeX = 0;
+    player->planeY = 0.66;
 }
 
 void init_window(t_game *game)
