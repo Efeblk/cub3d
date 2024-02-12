@@ -4,14 +4,13 @@ OBJ = $(SRC:.c=.o)
 
 CC = gcc
 RM = rm -rf
-CFLAGS = -Wall -Wextra -Werror
-# EXEC = exec
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 PARSER = parser
 UTILS = utils
 GNL = get_next_line
 MLX = mlx
 IG = start_game
-# BUILTIN = builtin
+RC = raycast
 
 all: $(NAME)
 
@@ -21,7 +20,8 @@ $(NAME): $(OBJ)
 	@make -s -C $(PARSER)
 	@make -s -C $(IG)
 	@make -s -C $(MLX)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(PARSER)/libparser.a $(UTILS)/libutils.a $(GNL)/libget_next_line.a $(MLX)/libmlx.a $(IG)/libstart_game.a -framework OpenGL -framework AppKit
+	@make -s -C $(RC)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(PARSER)/libparser.a $(UTILS)/libutils.a $(GNL)/libget_next_line.a $(MLX)/libmlx.a $(IG)/libstart_game.a $(RC)/libraycast.a -framework OpenGL -framework AppKit
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -33,6 +33,7 @@ clean:
 	@make clean -s -C $(UTILS)
 	@make clean -s -C $(IG)
 	@make clean -s -C $(MLX)
+	@make clean -s -C $(RC)
 
 fclean: clean
 	@$(RM) $(NAME)
@@ -40,6 +41,7 @@ fclean: clean
 	@make fclean -s -C $(PARSER)
 	@make fclean -s -C $(UTILS)
 	@make fclean -s -C $(IG)
+	@make fclean -s -C $(RC)
 
 re: fclean all
 

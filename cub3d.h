@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/11 07:53:45 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/12 17:51:32 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@
 #define RIGHT_ARROW 124
 #define MOVE_SPEED 2
 #define ROT_SPEED 0.1
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 600
+# define FOV 1.047198 //M_PI / 3
+# define ANGLE_STEP 0.001309  //FOV / WIDTH
+
 typedef struct s_game
 {
     struct s_map *map;
@@ -70,8 +75,7 @@ typedef struct s_player
     double posY;
     double dirX;
     double dirY;
-    double planeX;
-    double planeY;
+    double dir_radian;
     char dir;
 }               t_player;
 
@@ -96,7 +100,42 @@ typedef struct	s_img_data {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+    int     width;
+    int     height;
 }				t_img_data;
+
+typedef struct s_point
+{
+	double			x;
+	double			y;
+}					t_point;
+
+typedef struct s_ray
+{
+	t_point		ray_dir;
+	t_point		side_dist;
+	t_point		delta_dist;
+
+	int			map_x;
+	int			map_y;
+
+	double		perp_wall_dist;
+
+	int			step_x;
+	int			step_y;
+
+	int			side;
+	int			hit;
+
+	t_img_data	*texture;
+	int			tex_x;
+}			t_ray;
+
+typedef enum s_side
+{
+	EAST_WEST,
+	NORTH_SOUTH
+}	t_side;
 
 //UTILS
 int file_exists(char *file);
@@ -177,6 +216,7 @@ void init_game(t_game *game);
 void init_player(t_player *player);
 void init_window(t_game *game);
 void load_assets(void *mlx, t_game *game);
+void set_dir(t_player *player);
 
 //mlx_window.c
 void open_window(t_game *game);
@@ -187,7 +227,6 @@ int close_window(void);
 
 //draw_minimap.c
 void draw_minimap(t_game *game);
-void my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 
 //draw_plater.c
 void draw_player(t_game *game);
@@ -196,6 +235,30 @@ void draw_circle(t_img_data *data, int center_x, int center_y, int radius, int c
 //key_press.c
 int key_press(int keycode, t_game *game);
 
+//raycast.c
+void raycast(t_game *game);
+void ray_step(t_ray *ray);
+int safe_divide(int numerator, double denominator);
+
+//raycast_calculate.c
+void calculate_perpetual(t_game *game, t_ray *ray);
+void calculate_step_and_dist(t_game *game, t_ray *ray);
+void determine_texture(t_game *game, t_ray *ray);
+void calculate_texture_x(t_game *game, t_ray *ray);
+void fix_mirror(t_ray *ray);
+
+//raycast_draw.c
+void draw_textured_line(t_game *game, t_ray *ray, int x, int line_height);
+unsigned int get_pixel_color(int tex_y, t_ray *ray);
+int get_tex_y(int y, t_ray *ray, int line_height);
+void	draw_floor_ceiling(t_game *game, int x, int lineHeight);
+
+//raycast_util.c
+void init_ray(t_game *game, t_ray *ray, double angle);
+int is_hit(t_ray *ray, t_game *game);
+int is_boundary_violated(t_ray *ray, int map_size);
+void clearimg(t_game *game);
+void my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 
 //render.c
 int render(t_game *game);
