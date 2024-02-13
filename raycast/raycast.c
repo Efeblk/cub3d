@@ -34,7 +34,6 @@ void	raycast(t_game *game)
 		draw_textured_line(game, &ray, x, line_height); //bu fonksiyon kastırıyor
 		draw_floor_ceiling(game, x, line_height);
 		angle += ANGLE_STEP;
-		printf("raycasting %d\n", x);
 	}
 }
 

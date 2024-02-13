@@ -15,9 +15,18 @@ void init_player(t_player *player)
     // player->posY *= BLOCK_SIZE;
     // player->posX += BLOCK_SIZE / 2; //center of the block
     // player->posY += BLOCK_SIZE / 2; //center of the block
-    player->dirX = -1;
+    printf("player->posX: %f\n", player->posX);
+    printf("player->posY: %f\n", player->posY);
+    player->posX += 0.5;
+    player->posY += 0.5;
+    printf("player->posX: %f\n", player->posX);
+    printf("player->posY: %f\n", player->posY);
     player->dirY = 0;
+    printf("%f\n", player->dir_radian);
+    printf("dir: %c\n", player->dir);
     set_dir(player);
+    printf("%f", player->dir_radian);
+
 }
 
 void init_window(t_game *game)
