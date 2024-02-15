@@ -35,12 +35,14 @@
 #define D 2
 #define LEFT_ARROW 123
 #define RIGHT_ARROW 124
-#define MOVE_SPEED 2
-#define ROT_SPEED 0.1
+#define MOVE_SPEED 0.0000005 //çok hızlıyız bune aqqqqq
+#define ROT_SPEED 0.02
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
 # define FOV 1.047198 //M_PI / 3
 # define ANGLE_STEP 0.001309  //FOV / WIDTH
+# define OFFSET 0.6
+# define COLLIDE_MULTIPLIER 1.5
 
 typedef struct s_game
 {
@@ -51,7 +53,7 @@ typedef struct s_game
     void *window;
     int window_width;
     int window_height;
-   
+    int key;
 }               t_game;
 
 typedef struct s_map
@@ -233,7 +235,8 @@ void draw_player(t_game *game);
 void draw_circle(t_img_data *data, int center_x, int center_y, int radius, int color);
 
 //key_press.c
-int key_press(int keycode, t_game *game);
+int	ft_press(int key, t_game *game);
+int	ft_release(int key, t_game *game);
 
 //raycast.c
 void raycast(t_game *game);
@@ -260,8 +263,14 @@ int is_boundary_violated(t_ray *ray, int map_size);
 void clearimg(t_game *game);
 void my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 
+//movement.c
+void	ft_move(t_player *player, int dir, t_game *game);
+int	is_collide(double new_x, double new_y, char **map);
+void	ft_turn(t_player *player, char dir);
+
 //render.c
 int render(t_game *game);
+void	routine(t_game *game);
 ///////////////////
 //GET NEXT LINE
 char	*get_next_line(int fd);
