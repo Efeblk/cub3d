@@ -1,53 +1,52 @@
 #include "cub3d.h"
 
-void check_line(char *line, t_map *map, int line_count, int *map_start_flag)
+void	check_line(char *line, t_map *map, int line_count, int *map_start_flag)
 {
-    int i;
+	t_checkline_helper	helper;
 
-    i = 0;
-    while (line[i])
-    {
-        while (line[i] == ' ' || line[i] == '\t')
-            i++;
-        if ((line[i] == 'W' && line[i + 1] == 'E') || 
-            (line[i] == 'E' && line[i + 1] == 'A') || 
-            (line[i] == 'S' && line[i + 1] == 'O') ||  
-            (line[i] == 'N' && line[i + 1] == 'O') || 
-            line[i] == 'F' || 
-            line[i] == 'C' || line[i] == '1' || line[i] == '0')
-        {
-            printf("Valid character in infos: %c%c\n", line[i], line[i + 1]);
-            if ((line[i] == '1' || line[i] == '0') && check_infos_set(map) == 1)
-            {
-                if (*map_start_flag == 0)
-                {
-                    printf("map_start_flag: %s\n", line);
-                    map->helpers->line_to_skip = line_count;
-                    *map_start_flag = 1;
-                } 
-                parse_map_line(line, map);
-            }
-            else
-            {
-                route_valid(&line[i], map);
-            }   
-            break;
-        }
-        else
-            freeline_and_exit(line);
-        i++;
-    }
+	helper.map = map;
+	helper.line_count = line_count;
+	helper.map_start_flag = map_start_flag;
+	helper.line = line;
+	helper.i = 0;
+	while (line[helper.i])
+	{
+		while (line[helper.i] == ' ' || line[helper.i] == '\t')
+			helper.i++;
+		if ((line[helper.i] == 'W' && line[helper.i + 1] == 'E') ||
+			(line[helper.i] == 'E' && line[helper.i + 1] == 'A') ||
+			(line[helper.i] == 'S' && line[helper.i + 1] == 'O') ||
+			(line[helper.i] == 'N' && line[helper.i + 1] == 'O') ||
+			line[helper.i] == 'F' ||
+			line[helper.i] == 'C' || line[helper.i] == '1' || line[helper.i] == '0')
+		{
+			check_line2(&helper);
+			break ;
+		}
+		else
+			freeline_and_exit(line);
+		helper.i++;
+	}
 }
 
-void freeline_and_exit(char *line)
+void check_line2(t_checkline_helper *helper)
 {
-    free(line);
-    printf("Error\nInvalid character in infos\n");
-    //system("leaks cub3d");
-    exit(0);
+	if ((helper->line[helper->i] == '1' || helper->line[helper->i] == '0') && check_infos_set(helper->map) == 1)
+			{
+				if (*(helper->map_start_flag) == 0)
+				{
+					helper->map->helpers->line_to_skip = helper->line_count;
+					*(helper->map_start_flag) = 1;
+				}
+				parse_map_line(helper->line, helper->map);
+			}
+			else
+				route_valid(&helper->line[helper->i], helper->map);
 }
 
-// void route_maporinfo(char *line, int i, t_map *map, int *map_start_flag)
-// {
-    
-// }
+void	freeline_and_exit(char *line)
+{
+	free(line);
+	printf("Error\nInvalid character in infos\n");
+	exit(0);
+}

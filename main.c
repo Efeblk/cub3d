@@ -12,31 +12,29 @@
 
 #include "cub3d.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_game game;
-    t_map map;
-    t_helpers helpers;
-    t_player player;
+	t_game		game;
+	t_map		map;
+	t_helpers	helpers;
+	t_player	player;
 
-    map_init(&map, &helpers, &player);
-    if (argc == 2)
-    {
-        parse_arg(argv[1]);
-        parse_map(argv[1], &map);
-        game.map = &map;
-        
-        start_game(&game);
-    }
-    else if (argc > 2)
-    {
-        printf("Error\nToo many arguments\n");
-    }
-    else
-    {
-        printf("Error\nNo arguments\n");
-    }
-    //system("leaks cub3d");
-    print_char_array(map.map);
-    return 0;
+	map_init(&map, &helpers, &player);
+	if (argc == 2)
+	{
+		parse_arg(argv[1]);
+		parse_map(argv[1], &map);
+		game.map = &map;
+		start_game(&game);
+	}
+	else if (argc > 2)
+	{
+		printf("Error\nToo many arguments\n");
+	}
+	else
+	{
+		printf("Error\nNo arguments\n");
+	}
+	print_char_array(map.map);
+	return (0);
 }

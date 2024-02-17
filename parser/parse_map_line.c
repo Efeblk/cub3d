@@ -3,7 +3,7 @@
 void parse_map_line(char *line, t_map *map)
 {
     int width;
-    
+
     check_map_line(line, map);
     width = ft_strlen(line);
     if (width > map->map_width)
@@ -72,8 +72,8 @@ int check_player_dir(char dir, int i, t_map *map)
         if (map->player->dir == 'x')
         {
             map->player->dir = dir;
-            map->player->posX= i;
-            map->player->posY = map->map_height;
+            map->player->pos_x= i;
+            map->player->pos_y = map->map_height;
             return 1;
         }
         else

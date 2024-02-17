@@ -7,7 +7,7 @@ void	draw_textured_line(t_game *game, t_ray *ray, int x, int line_height)
 	unsigned int	pixel_color;
 	int				y;
 	int				tex_y;
-	
+
 	line_start = (WINDOW_HEIGHT - line_height) / 2;
 	line_end = (WINDOW_HEIGHT + line_height) / 2;
 	if (line_start < 0)
@@ -15,8 +15,6 @@ void	draw_textured_line(t_game *game, t_ray *ray, int x, int line_height)
 	if (line_end > WINDOW_HEIGHT)
 		line_end = WINDOW_HEIGHT;
 	y = line_start;
-	printf("line_start: %d\n", line_start);
-	printf("line_end: %d\n", line_end);
 	while (++y < line_end)
 	{
 		tex_y = get_tex_y(y, ray, line_height);

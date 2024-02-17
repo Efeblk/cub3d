@@ -1,10 +1,10 @@
 #include "cub3d.h"
 
-int render(t_game *game)
+int	render(t_game *game)
 {
-    game->map->player->dirX = cos(game->map->player->dir_radian);
-    game->map->player->dirY = sin(game->map->player->dir_radian);
-    routine(game);
+	game->map->player->dir_x = cos(game->map->player->dir_radian);
+	game->map->player->dir_y = sin(game->map->player->dir_radian);
+	routine(game);
 	if (game->key == W)
 		ft_move(game->map->player, 'N', game);
 	else if (game->key == S)
@@ -17,8 +17,8 @@ int render(t_game *game)
 		ft_turn((game->map->player), LEFT_ARROW);
 	else if (game->key == RIGHT_ARROW)
 		ft_turn((game->map->player), RIGHT_ARROW);
-    routine(game);
-    return 0;
+	routine(game);
+	return (0);
 }
 
 void	routine(t_game *game)

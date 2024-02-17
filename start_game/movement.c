@@ -20,51 +20,59 @@ void	ft_move(t_player *player, int dir, t_game *game)
 {
 	if (dir == 'N')
 	{
-		player->posX += player->dirX * (MOVE_SPEED + OFFSET);
-		player->posY += player->dirY * (MOVE_SPEED + OFFSET);
-		if (is_collide(player->posX, player->posY, game->map->map))
+		player->pos_x += player->dir_x * (MOVE_SPEED + OFFSET);
+		player->pos_y += player->dir_y * (MOVE_SPEED + OFFSET);
+		if (is_collide(player->pos_x, player->pos_y, game->map->map))
 		{
-			player->posX -= player->dirX * (MOVE_SPEED + OFFSET);
-			player->posY -= player->dirY * (MOVE_SPEED + OFFSET);
+			player->pos_x -= player->dir_x * (MOVE_SPEED + OFFSET);
+			player->pos_y -= player->dir_y * (MOVE_SPEED + OFFSET);
 		}
 	}
-	if (dir == 'S')
+	else if (dir == 'S')
 	{
-		player->posX -= player->dirX * (MOVE_SPEED + OFFSET);
-		player->posY -= player->dirY * (MOVE_SPEED + OFFSET);
-		if (is_collide(player->posX, player->posY, game->map->map))
+		player->pos_x -= player->dir_x * (MOVE_SPEED + OFFSET);
+		player->pos_y -= player->dir_y * (MOVE_SPEED + OFFSET);
+		if (is_collide(player->pos_x, player->pos_y, game->map->map))
 		{
-			player->posX += player->dirX * (MOVE_SPEED + OFFSET);
-			player->posY += player->dirY * (MOVE_SPEED + OFFSET);
+			player->pos_x += player->dir_x * (MOVE_SPEED + OFFSET);
+			player->pos_y += player->dir_y * (MOVE_SPEED + OFFSET);
 		}
 	}
+	else if (dir == 'E' || dir == 'W')
+		ft_move2(player, dir, game);
+}
+
+void	ft_move2(t_player *player, int dir, t_game *game)
+{
 	if (dir == 'E')
 	{
-		player->posX -= player->dirY * (MOVE_SPEED + OFFSET);
-		player->posY += player->dirX * (MOVE_SPEED + OFFSET);
-		if (is_collide(player->posX, player->posY, game->map->map))
+		player->pos_x -= player->dir_y * (MOVE_SPEED + OFFSET);
+		player->pos_y += player->dir_x * (MOVE_SPEED + OFFSET);
+		if (is_collide(player->pos_x, player->pos_y, game->map->map))
 		{
-			player->posX += player->dirY * (MOVE_SPEED + OFFSET);
-			player->posY -= player->dirX * (MOVE_SPEED + OFFSET);
+			player->pos_x += player->dir_y * (MOVE_SPEED + OFFSET);
+			player->pos_y -= player->dir_x * (MOVE_SPEED + OFFSET);
 		}
 	}
-	if (dir == 'W')
+	else if (dir == 'W')
 	{
-		player->posX += player->dirY * (MOVE_SPEED + OFFSET);
-		player->posY -= player->dirX * (MOVE_SPEED + OFFSET);
-		if (is_collide(player->posX, player->posY, game->map->map))
+		player->pos_x += player->dir_y * (MOVE_SPEED + OFFSET);
+		player->pos_y -= player->dir_x * (MOVE_SPEED + OFFSET);
+		if (is_collide(player->pos_x, player->pos_y, game->map->map))
 		{
-			player->posX -= player->dirY * (MOVE_SPEED + OFFSET);
-			player->posY += player->dirX * (MOVE_SPEED + OFFSET);
+			player->pos_x -= player->dir_y * (MOVE_SPEED + OFFSET);
+			player->pos_y += player->dir_x * (MOVE_SPEED + OFFSET);
 		}
 	}
 }
 
 int	is_collide(double new_x, double new_y, char **map)
 {
-	if (map[(int)(new_y)][(int)(new_x)] == '1' || map[(int)(new_y)][(int)(new_x)] == ' ' || map[(int)(new_y)][(int)(new_x)] == '\0')
-    {
-        return (1);
-    }
+	if (map[(int)(new_y)][(int)(new_x)] == '1'
+		|| map[(int)(new_y)][(int)(new_x)] == ' '
+		|| map[(int)(new_y)][(int)(new_x)] == '\0')
+	{
+		return (1);
+	}
 	return (0);
 }
