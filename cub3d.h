@@ -148,6 +148,15 @@ typedef struct s_checkline_helper
 	int		i;
 }t_checkline_helper;
 
+typedef struct s_checkrgb_helper
+{
+	int		i;
+	char	*tmp_value;
+	int		tmp_i;
+	int		*rgb;
+	int		rgb_i;
+}t_checkrgb_helper;
+
 //UTILS
 int				file_exists(char *file);
 int				last_spaces_tonull(char *line);
@@ -186,19 +195,27 @@ void			route_valid(char *line, t_map *map);
 //check_line.c
 void			check_line(char *line, t_map *map, int line_count,
 					int *map_start_flag);
-void check_line2(t_checkline_helper *helper);
+void			check_line2(t_checkline_helper *helper);
 void			freeline_and_exit(char *line);
 
 //parse_map_xpm.c
 void			check_xpm(char *line, t_map *map);
 void			w_xpm_to_map(char c1, char c2, char *line, t_map *map);
+void			free_and_exit_xpm(t_map *map, int error);
 
 //parse_map_rgb.c
 void			check_rgb(char *line, char c, t_map *map);
-void			w_rgb_to_map(int *rgb, char c, t_map *map);
+void			load_rgb_helper(t_checkrgb_helper *helper);
+void			free_rgb_tmp(int *rgb, char *tmp_value, t_map *map);
+
+//parse_map_rgb2.c
 void			check_rgb_value(int value, t_map *map,
 					char *tmp_value, int *rgb);
 void			count_coma(char *line, t_map *map);
+
+//parse_map_rgb3.c
+void			w_rgb_to_map(int *rgb, char c, t_map *map);
+void			free_rgb(int *rgb, t_map *map, int f_or_c);
 
 //check_infos.c
 int				check_infos_set(t_map *map);

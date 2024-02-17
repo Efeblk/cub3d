@@ -1,116 +1,48 @@
 #include "cub3d.h"
 
-void check_rgb(char *line, char c, t_map *map)
+void	check_rgb(char *l, char c, t_map *map)
 {
-    int i;
-    char *tmp_value;
-    int tmp_i;
-    int *rgb;
-    int rgb_i;
+	t_checkrgb_helper	h;
 
-    tmp_i = 0;
-    i = 0;
-    rgb_i = 0;
-    count_coma(line, map);
-    tmp_value = (char *)malloc(sizeof(char) * 4);
-    rgb = (int *)malloc(sizeof(int) * 3);
-    while (line[i])
-    {
-        while (line[i] && (line[i] == ' ' || line[i] == '\t'))
-            ++i;
-        printf("RGB !! line[i] = %c\n", line[i]);
-        if (line[i] && !(line[i] >= '0' && line[i] <= '9') && line[i] != ',')
-        {
-            printf("ERROR linei %d", line[i]);
-            free(tmp_value);
-            free(rgb);
-            free(map->helpers->free_line);
-            exit(0);
-        }
-        while (line[i] >= '0' && line[i] <= '9' )
-        {
-            tmp_value[tmp_i] = line[i];
-            ++i;
-            ++tmp_i;
-        }
-        tmp_value[tmp_i] = '\0';
-        rgb[rgb_i] = ft_atoi(tmp_value);
-        check_rgb_value(rgb[rgb_i], map, tmp_value, rgb);
-        tmp_i = 0;
-        ++rgb_i;
-        ++i;
-    }
-    free(tmp_value);
-    w_rgb_to_map(rgb, c, map);
+	load_rgb_helper(&h);
+	count_coma(l, map);
+	while (l[h.i])
+	{
+		while (l[h.i] && (l[h.i] == ' ' || l[h.i] == '\t'))
+			++h.i;
+		if (l[h.i] && !(l[h.i] >= '0' && l[h.i] <= '9') && l[h.i] != ',')
+			free_rgb_tmp(h.rgb, h.tmp_value, map);
+		while (l[h.i] >= '0' && l[h.i] <= '9' )
+		{
+			h.tmp_value[h.tmp_i] = l[h.i];
+			++h.i;
+			++h.tmp_i;
+		}
+		h.tmp_value[h.tmp_i] = '\0';
+		h.rgb[h.rgb_i] = ft_atoi(h.tmp_value);
+		check_rgb_value(h.rgb[h.rgb_i], map, h.tmp_value, h.rgb);
+		h.tmp_i = 0;
+		++h.rgb_i;
+		++h.i;
+	}
+	free(h.tmp_value);
+	w_rgb_to_map(h.rgb, c, map);
 }
 
-void w_rgb_to_map(int *rgb, char c, t_map *map)
+void	load_rgb_helper(t_checkrgb_helper *helper)
 {
-    if (c == 'F')
-    {
-        if (map->floor_color == -1)
-        {
-            map->floor_color = (rgb[0] << 16) + (rgb[1] << 8) + rgb[2];
-            free(rgb);
-        }
-        else
-        {
-            free(rgb);
-            free(map->helpers->free_line);
-            printf("Error\n multiple floor color\n");
-            //system("leaks cub3d");
-            exit(0);
-        }
-    }
-    else if (c == 'C')
-    {
-        if (map->ceiling_color == -1)
-        {
-            map->ceiling_color = (rgb[0] << 16) + (rgb[1] << 8) + rgb[2];
-            free(rgb);
-        }
-        else
-        {
-            free(rgb);
-            free(map->helpers->free_line);
-            printf("Error\n Multiple ceiling color\n");
-            //system("leaks cub3d");
-            exit(0);
-        }
-    }
+	helper->tmp_i = 0;
+	helper->i = 0;
+	helper->rgb_i = 0;
+	helper->tmp_value = (char *)malloc(sizeof(char) * 4);
+	helper->rgb = (int *)malloc(sizeof(int) * 3);
 }
 
-void check_rgb_value(int value, t_map *map, char *tmp_value, int *rgb)
+void	free_rgb_tmp(int *rgb, char *tmp_value, t_map *map)
 {
-    if (value < 0 || value > 255)
-    {
-        free(rgb);
-        free(tmp_value);
-        free(map->helpers->free_line);
-        printf("Error\n RGB value not between 0 and 255\n");
-        //system("leaks cub3d");
-        exit(0);
-    }
+	free(tmp_value);
+	free(rgb);
+	free(map->helpers->free_line);
+	exit(0);
 }
 
-void count_coma(char *line, t_map *map)
-{
-    int i;
-    int count;
-
-    i = 0;
-    count = 0;
-    while (line[i])
-    {
-        if (line[i] == ',')
-            count++;
-        i++;
-    }
-    if (count != 2)
-    {
-        free(map->helpers->free_line);
-        printf("Error\n RGB value not valid\n");
-       //system("leaks cub3d");
-        exit(0);
-    }
-}
