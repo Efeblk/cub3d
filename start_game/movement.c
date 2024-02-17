@@ -62,9 +62,8 @@ void	ft_move(t_player *player, int dir, t_game *game)
 
 int	is_collide(double new_x, double new_y, char **map)
 {
-	if (map[(int)(new_y)][(int)(new_x)] == '1')
+	if (map[(int)(new_y)][(int)(new_x)] == '1' || map[(int)(new_y)][(int)(new_x)] == ' ' || map[(int)(new_y)][(int)(new_x)] == '\0')
     {
-		printf("collide\n");
         return (1);
     }
 	return (0);

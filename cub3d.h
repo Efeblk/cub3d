@@ -36,7 +36,7 @@
 #define LEFT_ARROW 123
 #define RIGHT_ARROW 124
 #define MOVE_SPEED 0.0000005 //çok hızlıyız bune aqqqqq
-#define ROT_SPEED 0.02
+#define ROT_SPEED 0.03
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
 # define FOV 1.047198 //M_PI / 3

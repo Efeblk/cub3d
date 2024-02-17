@@ -1,18 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   raycast.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 23:23:34 by mkaraden          #+#    #+#             */
-/*   Updated: 2024/02/12 18:05:31 by ibalik           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "cub3d.h"
 
-//raycast main
 void	raycast(t_game *game)
 {
 	double	angle;
@@ -31,13 +18,12 @@ void	raycast(t_game *game)
 		calculate_texture_x(game, &ray);
 		ray.perp_wall_dist *= cos(game->map->player->dir_radian - angle);
 		line_height = safe_divide(WINDOW_HEIGHT, ray.perp_wall_dist);
-		draw_textured_line(game, &ray, x, line_height); //bu fonksiyon kastırıyor
+		draw_textured_line(game, &ray, x, line_height);
 		draw_floor_ceiling(game, x, line_height);
 		angle += ANGLE_STEP;
 	}
 }
 
-//take one step
 void	ray_step(t_ray *ray)
 {
 	if (ray->side_dist.x < ray->side_dist.y)
