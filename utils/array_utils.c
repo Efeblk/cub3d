@@ -1,29 +1,29 @@
 #include "cub3d.h"
 
 //ALTTAKİNİ SİLMEYİ UNUTMA
-void print_char_array(char **array)
+void	print_char_array(char **array)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    printf("print_char_array:\n");
-    while (array[i])
-    {
-        printf("%s\n", array[i]);
-        ++i;
-    }
-    printf("print_char_array end\n");
+	i = 0;
+	printf("print_char_array:\n");
+	while (array[i])
+	{
+		printf("%s\n", array[i]);
+		++i;
+	}
+	printf("print_char_array end\n");
 }
 
-void free_char_array(char **array)
+void	free_char_array(char **array)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (array[i])
-    {
-        free(array[i]);
-        ++i;
-    }
-    free(array);
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		++i;
+	}
+	free(array);
 }

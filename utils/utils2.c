@@ -27,9 +27,10 @@ int	ft_isalnum(int c)
 	return (ft_isdigit(c) || ft_isalpha(c));
 }
 
-int file_exists(char *file)
+int	file_exists(char *file)
 {
-	int fd;
+	int	fd;
+
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
@@ -42,9 +43,9 @@ int file_exists(char *file)
 	}
 }
 
-int last_spaces_tonull(char *line)
+int	last_spaces_tonull(char *line)
 {
-	int i;
+	int	i;
 
 	i = ft_strlen(line) - 1;
 	while (line[i] != '\0' && (line[i] == ' ' || line[i] == '\t'))
@@ -52,5 +53,5 @@ int last_spaces_tonull(char *line)
 		line[i] = '\0';
 		i--;
 	}
-	return i;
+	return (i);
 }

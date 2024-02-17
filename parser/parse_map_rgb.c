@@ -45,4 +45,3 @@ void	free_rgb_tmp(int *rgb, char *tmp_value, t_map *map)
 	free(map->helpers->free_line);
 	exit(0);
 }
-

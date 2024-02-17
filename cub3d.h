@@ -176,10 +176,7 @@ int				ft_atoi(const char *str);
 void			print_char_array(char **array); //BUNU SİL!!!!
 void			free_char_array(char **array);
 
-float			convert_to_radian(float angle);
-float			convert_to_degree(float radian);
 ///////////////////////////
-
 //main.c
 void			map_init(t_map *map, t_helpers *helpers, t_player *player);
 
