@@ -35,6 +35,5 @@ int	main(int argc, char **argv)
 	{
 		printf("Error\nNo arguments\n");
 	}
-	print_char_array(map.map);
 	return (0);
 }

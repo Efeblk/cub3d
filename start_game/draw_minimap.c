@@ -4,42 +4,26 @@ int	my_get_pixel_color(t_img_data *img, int x, int y)
 {
 	char			*pixel_addr;
 	unsigned int	*pixel;
-	unsigned int	color;
 
 	pixel_addr = img->addr
 		+ (y * img->line_length + x * (img->bits_per_pixel / 8));
-	if (img->bits_per_pixel == 32)
-	{
-		pixel = (unsigned int *)pixel_addr;
-		return (*pixel);
-	}
-	else if (img->bits_per_pixel == 24)
-	{
-		pixel = (unsigned char *)pixel_addr;
-		color = (pixel[2] << 16) | (pixel[1] << 8) | pixel[0];
-		return (color);
-	}
-	else
-	{
-		return (-1);
-	}
+	pixel = (unsigned int *)pixel_addr;
+	return (*pixel);
 }
 
 void	draw_empty_block(t_game *game, int x, int y)
 {
 	int	dx;
 	int	dy;
-	int	block_size;
 	int	px;
 	int	py;
 
 	dx = 0;
 	dy = 0;
-	block_size = BLOCK_SIZE;
-	while (dy < block_size)
+	while (dy < game->block_size_2d)
 	{
 		dx = 0;
-		while (dx < block_size)
+		while (dx < game->block_size_2d)
 		{
 			px = x + dx;
 			py = y + dy;
@@ -54,18 +38,16 @@ void	draw_wall_block(t_game *game, int x, int y, t_img_data *img)
 {
 	int	dx;
 	int	dy;
-	int	block_size;
 	int	px;
 	int	py;
-	int color;
+	int	color;
 
 	dx = 0;
 	dy = 0;
-	block_size = BLOCK_SIZE;
-	while (dy < block_size)
+	while (dy < game->block_size_2d)
 	{
 		dx = 0;
-		while (dx < block_size)
+		while (dx < game->block_size_2d)
 		{
 			px = x + dx;
 			py = y + dy;
@@ -86,7 +68,7 @@ void	draw_minimap(t_game *game)
 	int	block_size;
 
 	i = 0;
-	block_size = BLOCK_SIZE;
+	block_size = game->block_size_2d;
 	while (i < game->map->map_height)
 	{
 		j = 0;

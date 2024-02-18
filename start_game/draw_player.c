@@ -34,6 +34,11 @@ void	draw_circle(t_img_data *data, int center_x, int center_y, int radius, int c
 
 void	draw_player(t_game *game)
 {
-	draw_circle(game->img, game->map->player->posX,
-		game->map->player->posY, 5, 0x00FF00);
+	int player_2d_x;
+	int player_2d_y;
+
+	player_2d_x = game->map->player->pos_x * game->block_size_2d;
+	player_2d_y = game->map->player->pos_y * game->block_size_2d;
+	draw_circle(game->img, player_2d_x,
+		player_2d_y, game->block_size_2d / 2, 0x00FF00);
 }

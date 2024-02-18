@@ -25,5 +25,7 @@ void	routine(t_game *game)
 {
 	clearimg(game);
 	raycast(game);
+	draw_minimap(game);
+	draw_player(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->img->img, 0, 0);
 }

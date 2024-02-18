@@ -5,3 +5,5 @@ maygen.cub okuldaki pc de parser da patlıyordu laptopta patlamıyor (?)
 !!!!!!!!!!
 MAKEFILE DUZELTİLMESİ GEREKİYOR "MAKE RE" ESSEK OLDUK
 !!!!!!!!!!
+
+kasıyor ise render fonksiyonundaki draw_minimap ve draw_player i kaldırabilirsin.

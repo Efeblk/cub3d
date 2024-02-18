@@ -54,6 +54,7 @@ typedef struct s_game
 	int					window_width;
 	int					window_height;
 	int					key;
+	int					block_size_2d;
 }t_game;
 
 typedef struct s_map
@@ -260,6 +261,8 @@ int				close_window(void);
 
 //draw_minimap.c
 void			draw_minimap(t_game *game);
+void			draw_wall_block(t_game *game, int x, int y, t_img_data *img);
+void			draw_empty_block(t_game *game, int x, int y);
 
 //draw_plater.c
 void			draw_player(t_game *game);

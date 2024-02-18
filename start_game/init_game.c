@@ -6,14 +6,15 @@ void	init_game(t_game *game)
 	load_assets(game->mlx, game);
 	init_window(game);
 	init_hooks(game);
+	if (game->map->map_width > game->map->map_height)
+		game->block_size_2d = 200 / game->map->map_width;
+	else
+		game->block_size_2d = 200 / game->map->map_height;
+	printf("block size %d \n", game->block_size_2d);
 }
 
 void	init_player(t_player *player)
 {
-	// player->posX *= BLOCK_SIZE; 
-	// player->posY *= BLOCK_SIZE;
-	// player->posX += BLOCK_SIZE / 2; //center of the block
-	// player->posY += BLOCK_SIZE / 2; //center of the block
 	player->pos_x += 0.5;
 	player->pos_y += 0.5;
 	player->dir_y = 0;
