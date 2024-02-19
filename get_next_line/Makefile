@@ -3,7 +3,7 @@ SRC = get_next_line.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I.. -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I..
 AR = ar
 
 all: $(NOM)

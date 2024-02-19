@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 15:44:02 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/19 18:38:04 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,12 @@ int				ft_atoi(const char *str);
 void			print_char_array(char **array); //BUNU SİL!!!!
 void			free_char_array(char **array);
 
+//free_game.c
+void			free_game(t_game *game);
+void			free_map(t_map *map);
+void			free_img_data(t_img_data *img);
+void			free_assets(t_assets *assets);
+
 ///////////////////////////
 //main.c
 void			map_init(t_map *map, t_helpers *helpers, t_player *player);
@@ -257,7 +263,7 @@ void			open_window(t_game *game);
 
 //init_hooks.c
 void			init_hooks(t_game *game);
-int				close_window(void);
+int				close_window(t_game *game);
 
 //draw_minimap.c
 void			draw_minimap(t_game *game);

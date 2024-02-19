@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:04 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/07 15:55:42 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/19 20:10:53 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_game		game;
+	t_game		game;	
 	t_map		map;
 	t_helpers	helpers;
 	t_player	player;

@@ -1,9 +1,9 @@
 NOM = libutils.a
-SRC = utils.c utils2.c utils3.c utils4.c ft_atoi.c array_utils.c
+SRC = utils.c utils2.c utils3.c utils4.c ft_atoi.c array_utils.c free_game.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I.. -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I..
 AR = ar
 
 all: $(NOM)

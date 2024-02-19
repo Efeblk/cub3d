@@ -3,7 +3,7 @@ SRC = parse_arg.c parse_map.c parse_map_xpm.c parse_map_rgb.c parse_map_rgb2.c p
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I.. -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I..
 AR = ar
 
 all: $(NOM)

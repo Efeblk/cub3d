@@ -3,7 +3,7 @@ SRC = raycast.c raycast_draw.c raycast_calculate.c raycast_utils.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I.. -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I..
 AR = ar
 
 all: $(NOM)

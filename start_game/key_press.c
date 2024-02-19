@@ -4,7 +4,7 @@ int	ft_press(int key, t_game *game)
 {
 	game->key = key;
 	if (key == ESC)
-		close_window();
+		close_window(game);
 	return (0);
 }
 

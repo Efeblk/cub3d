@@ -1,10 +1,9 @@
 #include "cub3d.h"
 
-int	close_window(void)
+int	close_window(t_game *game)
 {
-	printf("Window closed\n");
-	system("leaks cub3d");
-	exit(1);
+	free_game(game);
+	exit(0);
 }
 
 void	open_window(t_game *game)
