@@ -72,7 +72,7 @@ void	draw_minimap(t_game *game)
 	while (i < game->map->map_height)
 	{
 		j = 0;
-		while (j < game->map->map_width)
+		while (j < game->map->map[i][j] != '\0')
 		{
 			x = j * block_size;
 			y = i * block_size;

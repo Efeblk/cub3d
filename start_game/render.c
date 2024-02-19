@@ -4,7 +4,6 @@ int	render(t_game *game)
 {
 	game->map->player->dir_x = cos(game->map->player->dir_radian);
 	game->map->player->dir_y = sin(game->map->player->dir_radian);
-	routine(game);
 	if (game->key == W)
 		ft_move(game->map->player, 'N', game);
 	else if (game->key == S)
@@ -23,7 +22,6 @@ int	render(t_game *game)
 
 void	routine(t_game *game)
 {
-	clearimg(game);
 	raycast(game);
 	draw_minimap(game);
 	draw_player(game);

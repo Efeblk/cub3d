@@ -4,7 +4,7 @@ OBJ = $(SRC:.c=.o)
 
 CC = gcc
 RM = rm -rf
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 PARSER = parser
 UTILS = utils
 GNL = get_next_line

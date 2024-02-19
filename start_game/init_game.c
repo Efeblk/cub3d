@@ -20,7 +20,6 @@ void	init_player(t_player *player)
 	player->dir_y = 0;
 	player->dir_radian = M_PI / 4;
 	set_dir(player);
-	printf("%f", player->dir_radian);
 }
 
 void	init_window(t_game *game)
@@ -37,7 +36,6 @@ void	init_window(t_game *game)
 
 void	init_hooks(t_game *game)
 {
-	mlx_hook(game->window, ESC, 0, close_window, game);
 	mlx_hook(game->window, 2, 0, ft_press, game);
 	mlx_hook(game->window, 3, 0, ft_release, game);
 	mlx_loop_hook(game->mlx, render, game);

@@ -29,22 +29,6 @@ int	is_boundary_violated(t_ray *ray, int map_size)
 	return (0);
 }
 
-void	clearimg(t_game *game)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	j = -1;
-	while (++i < WINDOW_WIDTH)
-	{
-		while (++j < WINDOW_HEIGHT)
-		{
-			my_mlx_pixel_put((game->img), i, j, 0x00000000);
-		}
-	}
-}
-
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
 {
 	char	*dst;

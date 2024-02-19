@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/12 17:51:32 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:44:02 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define INT_MIN -2147483648
 # define BLOCK_SIZE 64
 # define MINI_MAP_SCALE 1 //Max 1, min 64
-# define ESC 17
+# define ESC 53
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
 # define W 13
@@ -296,7 +296,6 @@ void			draw_floor_ceiling(t_game *game, int x, int lineHeight);
 void			init_ray(t_game *game, t_ray *ray, double angle);
 int				is_hit(t_ray *ray, t_game *game);
 int				is_boundary_violated(t_ray *ray, int map_size);
-void			clearimg(t_game *game);
 void			my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 
 //movement.c

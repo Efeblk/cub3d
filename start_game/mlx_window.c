@@ -2,7 +2,9 @@
 
 int	close_window(void)
 {
-	exit(0);
+	printf("Window closed\n");
+	system("leaks cub3d");
+	exit(1);
 }
 
 void	open_window(t_game *game)

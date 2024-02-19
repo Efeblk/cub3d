@@ -3,7 +3,7 @@ SRC = init_game.c mlx_window.c start_game.c load_assets.c key_press.c movement.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I..
+CFLAGS = -Wall -Wextra -Werror -I.. -fsanitize=address -g
 AR = ar
 
 all: $(NOM)

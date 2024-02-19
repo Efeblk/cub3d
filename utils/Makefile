@@ -3,7 +3,7 @@ SRC = utils.c utils2.c utils3.c utils4.c ft_atoi.c array_utils.c
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I..
+CFLAGS = -Wall -Wextra -Werror -I.. -fsanitize=address -g
 AR = ar
 
 all: $(NOM)
