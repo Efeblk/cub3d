@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 18:38:04 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/19 20:52:13 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
-
 # include "mlx/mlx.h"
 
 # define BUFFER_SIZE 1
@@ -55,7 +54,7 @@ typedef struct s_game
 	int					window_height;
 	int					key;
 	int					block_size_2d;
-}t_game;
+}	t_game;
 
 typedef struct s_map
 {
@@ -70,7 +69,7 @@ typedef struct s_map
 	int					floor_color;
 	struct s_player		*player;
 	struct s_helpers	*helpers;
-}t_map;
+}	t_map;
 
 typedef struct s_player
 {
@@ -80,7 +79,7 @@ typedef struct s_player
 	double	dir_y;
 	double	dir_radian;
 	char	dir;
-}t_player;
+}	t_player;
 
 typedef struct s_assets
 {
@@ -88,9 +87,10 @@ typedef struct s_assets
 	struct s_img_data	*s;
 	struct s_img_data	*w;
 	struct s_img_data	*e;
-}t_assets;
+}	t_assets;
 
-typedef struct s_img_data {
+typedef struct s_img_data
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -138,7 +138,7 @@ typedef struct s_helpers
 	int		all_infos_set;
 	int		line_to_skip;
 	char	*free_line;
-}t_helpers;
+}	t_helpers;
 
 typedef struct s_checkline_helper
 {
@@ -147,7 +147,7 @@ typedef struct s_checkline_helper
 	t_map	*map;
 	char	*line;
 	int		i;
-}t_checkline_helper;
+}	t_checkline_helper;
 
 typedef struct s_checkrgb_helper
 {
@@ -156,7 +156,15 @@ typedef struct s_checkrgb_helper
 	int		tmp_i;
 	int		*rgb;
 	int		rgb_i;
-}t_checkrgb_helper;
+}	t_checkrgb_helper;
+
+typedef struct s_circle_helper
+{
+	int		x;
+	int		y;
+	int		err;
+	int		color;
+}	t_circle_helper;
 
 //UTILS
 int				file_exists(char *file);
@@ -273,7 +281,9 @@ void			draw_empty_block(t_game *game, int x, int y);
 //draw_plater.c
 void			draw_player(t_game *game);
 void			draw_circle(t_img_data *data, int center_x,
-					int center_y, int radius, int color);
+					int center_y, int color);
+void			circle(t_circle_helper *helper,
+					t_img_data *data, int c_x, int c_y);
 
 //key_press.c
 int				ft_press(int key, t_game *game);
