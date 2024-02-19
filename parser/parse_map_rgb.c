@@ -6,7 +6,7 @@ void	check_rgb(char *l, char c, t_map *map)
 
 	load_rgb_helper(&h);
 	count_coma(l, map);
-	while (l[h.i])
+	while (l[h.i] && h.rgb_i < 3)
 	{
 		while (l[h.i] && (l[h.i] == ' ' || l[h.i] == '\t'))
 			++h.i;
