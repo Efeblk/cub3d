@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:54:47 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:54:51 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:31 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 char	*ft_strchr(const char *string, int searchedChar )
 {

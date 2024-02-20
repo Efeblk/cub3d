@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:11:13 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:54:55 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:29 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	ft_isalpha(int c)
 {

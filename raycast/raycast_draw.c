@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:56:22 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:56:22 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:54 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	draw_textured_line(t_game *game, t_ray *ray, int x, int line_height)
 {

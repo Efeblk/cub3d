@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:53:44 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:53:45 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:36 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	draw_circle(t_img_data *data, int center_x, int center_y, int color)
 {

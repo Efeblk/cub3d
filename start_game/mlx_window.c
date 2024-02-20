@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:52:25 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:55:13 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:43 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	close_window(t_game *game)
 {

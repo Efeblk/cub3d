@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:56:25 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:55:33 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:53 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	init_ray(t_game *game, t_ray *ray, double angle)
 {

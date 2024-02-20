@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:06 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:19:33 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:02 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	check_vertical_walls(t_map *map)
 {

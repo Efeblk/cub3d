@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:53:59 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 15:15:22 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:45 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	ft_turn(t_player *player, char dir)
 {

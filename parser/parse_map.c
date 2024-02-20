@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 17:37:25 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 15:39:24 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:26 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	parse_map(char *arg, t_map *map)
 {

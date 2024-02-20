@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:53:35 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:53:38 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:33 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	my_get_pixel_color(t_img_data *img, int x, int y)
 {

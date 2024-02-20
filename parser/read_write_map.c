@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:42 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:13:26 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:27 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	read_write_map(char *mapname, t_map *map)
 {

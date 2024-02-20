@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:59:56 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:59:57 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:35 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 char	*ft_free(char *buffer, char *buf)
 {

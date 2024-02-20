@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:53:53 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 15:42:23 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:41 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	init_assets(t_assets *assets)
 {

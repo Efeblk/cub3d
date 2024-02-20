@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:09:50 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:55:23 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:24 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

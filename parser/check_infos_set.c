@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:56:51 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 15:33:35 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:59 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	check_infos_set(t_map *map)
 {

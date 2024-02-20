@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:27 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:20:15 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:16 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	check_rgb(char *l, char c, t_map *map)
 {

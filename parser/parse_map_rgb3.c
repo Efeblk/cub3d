@@ -6,11 +6,11 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:32 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 15:36:26 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:20 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	w_rgb_to_map(int *rgb, char c, t_map *map)
 {
