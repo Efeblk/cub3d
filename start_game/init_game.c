@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:53:48 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 15:17:18 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 16:18:30 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_player(t_player *player)
 	player->pos_x += 0.5;
 	player->pos_y += 0.5;
 	player->dir_y = 0;
-	player->dir_radian = M_PI / 4;
+	player->dir_x = 0;
 	set_dir(player);
 }
 
