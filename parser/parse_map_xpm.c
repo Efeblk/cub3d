@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:35 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 15:04:09 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:36:40 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ void	check_xpm(char *line, t_map *map)
 		if (line[i] == 'm' && line[i - 1] == 'p'
 			&& line[i - 2] == 'x' && line[i - 3] == '.')
 		{
-			printf("XPM OK: %s \n", line);
 			break ;
 		}
 		else
 		{
-			printf("XPM ERROR %s \n", line);
+			printf("Error\nXpm error: %s\n", line);
 			free(map->helpers->free_line);
 			exitor(0);
 		}
@@ -35,7 +34,7 @@ void	check_xpm(char *line, t_map *map)
 	}
 	if (file_exists(line) == 0)
 	{
-		printf("XPM DOES NOT EXIST: %s\n", line);
+		printf("Error\nXpm does not exist: %s\n", line);
 		free(map->helpers->free_line);
 		exitor(0);
 	}

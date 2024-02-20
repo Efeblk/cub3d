@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:56:30 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:56:31 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:43:56 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,5 @@ void	ray_step(t_ray *ray)
 
 int	safe_divide(int numerator, double denominator)
 {
-	if (denominator < 1e-5)
-		denominator = 0.001;
 	return ((int)(numerator / denominator));
 }

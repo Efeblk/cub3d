@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:32 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:20:30 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:36:26 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	w_rgb_to_map(int *rgb, char c, t_map *map)
 void	free_rgb(int *rgb, t_map *map, int f_or_c)
 {
 	if (f_or_c == 0)
-		printf("Error\n multiple floor color\n");
+		printf("Error\n Multiple floor color\n");
 	else if (f_or_c == 1)
 		printf("Error\n Multiple ceiling color\n");
 	free(rgb);

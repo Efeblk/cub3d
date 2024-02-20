@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:21 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:22:26 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:35:40 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check_map_line(char *line, t_map *map)
 		else
 		{
 			free(map->helpers->free_line);
-			printf("Error\nInvalid character in !! map: ' %d '\n", line[i]);
+			printf("Error\nInvalid character in map: ' %d '\n", line[i]);
 			exitor(0);
 		}
 		i++;
@@ -57,7 +57,7 @@ void	check_horizontal_walls(char *line, int i)
 			|| line[i + 1] == '\n' || line[i - 1] == '\0')
 		{
 			free(line);
-			printf("Error\nInvalid hori map\n");
+			printf("Error\nInvalid horizontal map\n");
 			exitor(0);
 		}
 	}
@@ -67,7 +67,7 @@ void	check_horizontal_walls(char *line, int i)
 			|| line[i + 1] == '\0' || line[i - 1] == '\n')
 		{
 			free(line);
-			printf("Error\nInvalid hori map: %d %c\n", i, line[i]);
+			printf("Error\nInvalid horizontal map\n");
 			exitor(0);
 		}
 	}
