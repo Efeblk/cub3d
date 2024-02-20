@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:35 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:20:49 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:04:09 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	check_xpm(char *line, t_map *map)
 	}
 	if (file_exists(line) == 0)
 	{
-		free(map->helpers->free_line);
 		printf("XPM DOES NOT EXIST: %s\n", line);
+		free(map->helpers->free_line);
 		exitor(0);
 	}
 }

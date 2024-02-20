@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:53:48 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:24:14 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:17:18 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	init_game(t_game *game)
 	init_hooks(game);
 	game->key = -1;
 	if (game->map->map_width > game->map->map_height)
-		game->block_size_2d = 200 / game->map->map_width;
+		game->block_size_2d = MINI_MAP_SCALE / game->map->map_width;
 	else
-		game->block_size_2d = 200 / game->map->map_height;
+		game->block_size_2d = MINI_MAP_SCALE / game->map->map_height;
 }
 
 void	init_player(t_player *player)

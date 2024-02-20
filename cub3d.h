@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/20 14:55:46 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:17:23 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define BLOCK_SIZE 64
-# define MINI_MAP_SCALE 1 //Max 1, min 64
+# define MINI_MAP_SCALE 200
 # define ESC 53
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
@@ -34,12 +34,12 @@
 # define D 2
 # define LEFT_ARROW 123
 # define RIGHT_ARROW 124
-# define MOVE_SPEED 0.0000005 //çok hızlıyız bune aqqqqq
+# define MOVE_SPEED 0.1
 # define ROT_SPEED 0.03
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
-# define FOV 1.047198 //M_PI / 3
-# define ANGLE_STEP 0.001309  //FOV / WIDTH
+# define FOV 1.047198
+# define ANGLE_STEP 0.001309
 # define OFFSET 0.6
 # define COLLIDE_MULTIPLIER 1.5
 
