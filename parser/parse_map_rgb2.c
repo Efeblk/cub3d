@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:30 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:57:30 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:20:25 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	check_rgb_value(int value, t_map *map, char *tmp_value, int *rgb)
 		free(tmp_value);
 		free(map->helpers->free_line);
 		printf("Error\n RGB value not between 0 and 255\n");
-		exit(0);
+		exitor(0);
 	}
 }
 
@@ -41,6 +41,6 @@ void	count_coma(char *line, t_map *map)
 	{
 		free(map->helpers->free_line);
 		printf("Error\n RGB value not valid\n");
-		exit(0);
+		exitor(0);
 	}
 }

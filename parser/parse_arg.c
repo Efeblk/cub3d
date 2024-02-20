@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start.c                                            :+:      :+:    :+:   */
+/*   parse_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:59:58 by ibalik            #+#    #+#             */
-/*   Updated: 2023/12/14 17:35:52 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:19:48 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	parse_arg(char *arg)
 	if (fd == -1)
 	{
 		printf("Error\nFile not found\n");
-		exit(0);
+		exitor(0);
 	}
 	close(fd);
 	cub_check(arg);
@@ -42,5 +42,5 @@ void	cub_check(char *arg)
 		i--;
 	}
 	printf("Error\nFile extension is not .cub\n");
-	exit(0);
+	exitor(0);
 }

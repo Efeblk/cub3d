@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:10:30 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:55:18 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:47:58 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,10 @@ int	last_spaces_tonull(char *line)
 		i--;
 	}
 	return (i);
+}
+
+void	exitor(int error)
+{
+	system("leaks cub3d");
+	exit(error);
 }

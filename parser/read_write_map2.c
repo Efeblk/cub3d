@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:45 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:57:46 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:20:59 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	check_more_maps(char *line, t_map *map)
 		printf("another map\n");
 		free_char_array(map->map);
 		free(line);
-		exit(0);
+		exitor(0);
 	}
 }

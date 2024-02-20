@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:52:25 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:52:26 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:55:13 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	close_window(t_game *game)
 {
 	free_game(game);
-	exit(0);
+	exitor(0);
+	return (0);
 }
 
 void	open_window(t_game *game)

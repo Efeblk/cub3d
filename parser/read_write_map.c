@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:42 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:57:42 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:13:26 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	fill_map(int fd, t_map *map)
 
 	map->map[0] = fill_with_spaces(map->map_width);
 	i = 1;
-	while ((line = get_next_line(fd)) && i < map->map_height + 1)
+	line = get_next_line(fd);
+	while ((line != NULL) && i < map->map_height + 1)
 	{
 		check_more_maps(line, map);
 		dir_to_zero(line);
@@ -37,6 +38,7 @@ void	fill_map(int fd, t_map *map)
 		map->map[i] = ft_strdup(line);
 		++i;
 		free(line);
+		line = get_next_line(fd);
 	}
 	free(line);
 	map->map[i] = fill_with_spaces(map->map_width);

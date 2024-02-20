@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:53:53 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:53:55 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:21:05 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	load_images(void *mlx, t_game *game)
 		|| game->assets->e->img == NULL)
 	{
 		printf("Error\nXPM File is not valid\n");
-		exit(0);
+		exitor(0);
 	}
 }
 

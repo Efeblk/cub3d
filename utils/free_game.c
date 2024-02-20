@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:54:33 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:54:35 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:56:13 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	free_game(t_game *game)
 	free(game->img->img);
 	free(game->img->addr);
 	free_assets(game->assets);
-	free(game->mlx);
-	free(game->window);
 }
 
 void	free_map(t_map *map)

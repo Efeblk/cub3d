@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:32 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:57:33 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:20:30 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void	free_rgb(int *rgb, t_map *map, int f_or_c)
 		printf("Error\n Multiple ceiling color\n");
 	free(rgb);
 	free(map->helpers->free_line);
-	exit(0);
+	exitor(0);
 }

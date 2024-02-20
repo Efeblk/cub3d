@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:27 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:57:28 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:20:15 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void	free_rgb_tmp(int *rgb, char *tmp_value, t_map *map)
 	free(tmp_value);
 	free(rgb);
 	free(map->helpers->free_line);
-	exit(0);
+	exitor(0);
 }

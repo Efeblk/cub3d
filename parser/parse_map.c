@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 17:37:25 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:57:58 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:20:54 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ void	parse_map(char *arg, t_map *map)
 	map_start_flag = 0;
 	line_count = 0;
 	fd = open(arg, O_RDONLY);
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		map->helpers->free_line = line;
 		parse_line(line);
 		check_line(line, map, line_count, &map_start_flag);
 		free(line);
 		line_count++;
+		line = get_next_line(fd);
 	}
 	close(fd);
 	read_write_map(arg, map);
@@ -57,7 +59,7 @@ void	parse_line(char *line)
 		{
 			free(line);
 			printf("space or tab on empty line\n");
-			exit(0);
+			exitor(0);
 		}
 	}
 }

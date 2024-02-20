@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:56:57 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:56:58 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:19:20 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ void	freeline_and_exit(char *line)
 {
 	free(line);
 	printf("Error\nInvalid character in infos\n");
-	exit(0);
+	exitor(0);
 }

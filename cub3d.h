@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:58:01 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:52:13 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:55:46 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ typedef struct s_circle_helper
 //UTILS
 int				file_exists(char *file);
 int				last_spaces_tonull(char *line);
+void			exitor(int error);
 
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t			ft_strlen(const char *s);

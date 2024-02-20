@@ -6,7 +6,7 @@
 /*   By: ibalik <ibalik@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:57:35 by ibalik            #+#    #+#             */
-/*   Updated: 2024/02/19 20:57:36 by ibalik           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:20:49 by ibalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_xpm(char *line, t_map *map)
 		{
 			printf("XPM ERROR %s \n", line);
 			free(map->helpers->free_line);
-			exit(0);
+			exitor(0);
 		}
 		--i;
 	}
@@ -37,7 +37,7 @@ void	check_xpm(char *line, t_map *map)
 	{
 		free(map->helpers->free_line);
 		printf("XPM DOES NOT EXIST: %s\n", line);
-		exit(0);
+		exitor(0);
 	}
 }
 
@@ -80,5 +80,5 @@ void	free_and_exit_xpm(t_map *map, int error)
 	else if (error == 3)
 		printf("Error\nMultiple NO\n");
 	free(map->helpers->free_line);
-	exit(0);
+	exitor(0);
 }
